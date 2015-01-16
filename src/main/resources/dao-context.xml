@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Configure filter translator -->
+	<bean id="filterTranslator" class="youapp.dataaccess.dao.jdbc.filter.JdbcFilterTranslator">
+	</bean>
+
+	<!-- Configure data access objects -->
+	<bean id="personDao" class="youapp.dataaccess.dao.jdbc.JdbcPersonDao">
+		<property name="dataSource" ref="dataSource" />
+		<property name="filterTranslator" ref="filterTranslator" />
+	</bean>
+
+	<bean id="accessLevelDao" class="youapp.dataaccess.dao.jdbc.JdbcAccessLevelDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="locationDao" class="youapp.dataaccess.dao.jdbc.JdbcLocationDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="pictureDao" class="youapp.dataaccess.dao.jdbc.JdbcPictureDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="statusUpdateDao" class="youapp.dataaccess.dao.jdbc.JdbcStatusUpdateDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="moodDao" class="youapp.dataaccess.dao.jdbc.JdbcMoodDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="educationDao" class="youapp.dataaccess.dao.jdbc.JdbcEducationDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="importanceDao" class="youapp.dataaccess.dao.jdbc.JdbcImportanceDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="questionDao" class="youapp.dataaccess.dao.jdbc.JdbcQuestionDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="replyDao" class="youapp.dataaccess.dao.jdbc.JdbcReplyDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="propositionDao" class="youapp.dataaccess.dao.jdbc.JdbcPropositionDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="matchingDao" class="youapp.dataaccess.dao.jdbc.JdbcMatchingDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="tagDao" class="youapp.dataaccess.dao.jdbc.JdbcTagDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="personBlockedDao" class="youapp.dataaccess.dao.jdbc.JdbcPersonBlockedDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="soulmatesDao" class="youapp.dataaccess.dao.jdbc.JdbcSoulmatesDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="facebookFriendshipDao" class="youapp.dataaccess.dao.jdbc.JdbcFacebookFriendshipDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="facebookGroupDao" class="youapp.dataaccess.dao.jdbc.JdbcFacebookGroupDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="facebookPageDao" class="youapp.dataaccess.dao.jdbc.JdbcFacebookPageDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="messageDao" class="youapp.dataaccess.dao.jdbc.JdbcMessageDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="conversationParticipantDao" class="youapp.dataaccess.dao.jdbc.JdbcConversationParticipantDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="searchableQuestionDao" class="youapp.dataaccess.dao.solr.SolrSearchableQuestionDao">
+		<property name="solrServer" ref="solrServer" />
+	</bean>
+
+</beans>

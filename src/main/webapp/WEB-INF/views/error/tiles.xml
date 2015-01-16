@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+		"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	
+	<definition name="error/error" extends="standardLayout">
+		<put-attribute name="title" value="error.title.page.error" />
+		<put-attribute name="content" value="/WEB-INF/views/error/error.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp" />
+	</definition>
+	
+	<definition name="error/errorUnexpected" extends="standardLayout">
+		<put-attribute name="title" value="error.title.page.errorUnexpected" />
+		<put-attribute name="content" value="/WEB-INF/views/error/errorUnexpected.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp" />
+	</definition>
+	
+</tiles-definitions>

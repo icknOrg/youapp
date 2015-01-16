@@ -1,0 +1,560 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<!-- Access Level -->
+	<ACCESSLEVEL
+		ID_ACCESS_LEVEL="1"
+		DESCRIPTION="Admin"/>
+	<ACCESSLEVEL
+		ID_ACCESS_LEVEL="2"
+		DESCRIPTION="User"/>
+	
+	<!-- 
+	<COUNTRY
+		IDCOUNTRY="219"
+		NAME="Switzerland"
+		ABBREV="CHE"
+		HASSTATES="1"/>
+	
+	<STATE
+		IDSTATE="1"
+		IDCOUNTRY="219"
+		NAME="Aargau"
+		ABBREV="AG"/>
+	<STATE
+		IDSTATE="4"
+		IDCOUNTRY="219"
+		NAME="Bern"
+		ABBREV="BE"/>
+	<STATE
+		IDSTATE="10"
+		IDCOUNTRY="219"
+		NAME="Graubünden"
+		ABBREV="GR"/>
+	<STATE
+		IDSTATE="13"
+		IDCOUNTRY="219"
+		NAME="Neuchatel"
+		ABBREV="NE"/>
+	<STATE
+		IDSTATE="24"
+		IDCOUNTRY="219"
+		NAME="Valais"
+		ABBREV="VS"/>
+	<STATE
+		IDSTATE="25"
+		IDCOUNTRY="219"
+		NAME="Zug"
+		ABBREV="ZG"/>
+	<STATE
+		IDSTATE="26"
+		IDCOUNTRY="219"
+		NAME="Zürich"
+		ABBREV="ZH"/>
+	
+	<CITY
+		IDCITY="1"
+		IDCOUNTRY="219"
+		STATE="1"
+		NAME="Merenschwand"/> 
+	<CITY
+		IDCITY="2"
+		IDCOUNTRY="219"
+		STATE="4"
+		NAME="Sumiswald"/>
+	<CITY
+		IDCITY="3"
+		IDCOUNTRY="219"
+		STATE="10"
+		NAME="Felsberg"/>
+	<CITY
+		IDCITY="4"
+		IDCOUNTRY="219"
+		STATE="13"
+		NAME="Neuchatel"/> 
+	<CITY
+		IDCITY="5"
+		IDCOUNTRY="219"
+		STATE="24"
+		NAME="Sion"/> 
+	<CITY
+		IDCITY="6"
+		IDCOUNTRY="219"
+		STATE="25"
+		NAME="Zug"/> 
+	<CITY
+		IDCITY="7"
+		IDCOUNTRY="219"
+		STATE="26"
+		NAME="Hinwil"/>  -->
+	
+	
+	<LOCATION 
+	   ID_LOCATION="5644692"
+	   NAME="Montana"
+	   LONGITUDE="-110.6896559"
+       LATITUDE="45.3402145"/>
+	
+	<!-- Person -->	
+	<PERSON
+		ID_PERSON="1"
+		ACCESS_LEVEL="2"
+		FB_ID="1111"
+		FIRST_NAME="Micheline"
+		LAST_NAME="Calmy-Rey"
+		NICK="Micheline"
+		ACTIVATED="1"
+		LOCATION="5644692"
+		GENDER="F"
+		MEMBER_SINCE="2008-02-12"
+		LAST_ONLINE="2011-05-31"
+		BIRTHDAY="1945-07-08"/>
+	<PERSON
+		ID_PERSON="2"
+		ACCESS_LEVEL="2"
+		FB_ID="2222"
+		FIRST_NAME="Eveline"
+		LAST_NAME="Widmer-Schlumpf"
+		NICK="Schlumpf"
+		ACTIVATED="1"
+        LOCATION="5644692"
+		GENDER="F"
+		MEMBER_SINCE="2009-05-22"
+		LAST_ONLINE="2011-03-13"
+		BIRTHDAY="1956-03-16"/>
+	<PERSON
+		ID_PERSON="3"
+		ACCESS_LEVEL="2"
+		FB_ID="3333"
+		FIRST_NAME="Doris"
+		LAST_NAME="Leuthard"
+		NICK="Dorisli"
+		ACTIVATED="1"
+        LOCATION="5644692"
+		GENDER="F"
+		MEMBER_SINCE="2002-08-15"
+		LAST_ONLINE="2011-01-19"
+		BIRTHDAY="1963-04-10"/>
+	<PERSON
+		ID_PERSON="4"
+		ACCESS_LEVEL="2"
+		FB_ID="4444"
+		FIRST_NAME="Ueli"
+		LAST_NAME="Maurer"
+		NICK="Ueli de Chnächt"
+		ACTIVATED="1"
+        LOCATION="5644692"
+		GENDER="M"
+		MEMBER_SINCE="2005-12-12"
+		LAST_ONLINE="2011-03-12"
+		BIRTHDAY="1950-12-01"/>
+	<PERSON
+		ID_PERSON="5"
+		ACCESS_LEVEL="2"
+		FB_ID="5555"
+		FIRST_NAME="Didier"
+		LAST_NAME="Burkhalter"
+		NICK="B.Diddy"
+		ACTIVATED="1"
+        LOCATION="5644692"
+		GENDER="M"
+		MEMBER_SINCE="2002-10-10"
+		LAST_ONLINE="2011-02-10"
+		BIRTHDAY="1960-04-17"/>
+	<PERSON
+		ID_PERSON="6"
+		ACCESS_LEVEL="2"
+		FB_ID="6666"
+		FIRST_NAME="Simonetta"
+		LAST_NAME="Sommaruga"
+		NICK="SimSom"
+		ACTIVATED="1"
+        LOCATION="5644692"
+		GENDER="F"
+		MEMBER_SINCE="2005-09-17"
+		LAST_ONLINE="2011-01-01"
+		BIRTHDAY="1960-05-14"/>
+	<PERSON
+		ID_PERSON="7"
+		ACCESS_LEVEL="2"
+		FB_ID="7777"
+		FIRST_NAME="Johann"
+		LAST_NAME="Schneider-Ammann"
+		NICK="Johammann"
+		ACTIVATED="1"
+        LOCATION="5644692"
+		GENDER="M"
+		MEMBER_SINCE="2002-11-24"
+		LAST_ONLINE="2011-04-04"
+		BIRTHDAY="1952-02-18"/>
+	<PERSON
+		ID_PERSON="8"
+		ACCESS_LEVEL="2"
+		FB_ID="8888"
+		FIRST_NAME="Ida"
+		LAST_NAME="Amsler"
+		ACTIVATED="0"
+        LOCATION="5644692"/>
+		
+	<!-- 
+	<FRIENDSHIP
+		IDSOURCE="2"
+		IDTARGET="4"
+		PROVISIONAL="0"
+		INITIATOR="2"
+		SINCE="1994-10-05"/>
+	<FRIENDSHIP
+		IDSOURCE="4"
+		IDTARGET="2"
+		PROVISIONAL="0"
+		INITIATOR="2"
+		SINCE="1994-10-05"/>
+	<FRIENDSHIP
+		IDSOURCE="4"
+		IDTARGET="5"
+		PROVISIONAL="0"
+		INITIATOR="5"
+		SINCE="2011-03-10"/>
+	<FRIENDSHIP
+		IDSOURCE="5"
+		IDTARGET="4"
+		PROVISIONAL="0"
+		INITIATOR="5"
+		SINCE="2011-03-10"/>
+	<FRIENDSHIP
+		IDSOURCE="5"
+		IDTARGET="6"
+		PROVISIONAL="1"
+		INITIATOR="5"
+		SINCE="2011-02-15"/>
+	<FRIENDSHIP
+		IDSOURCE="6"
+		IDTARGET="5"
+		PROVISIONAL="1"
+		INITIATOR="5"
+		SINCE="2011-02-15"/> -->
+		
+	<!-- Facebook Friendship -->
+	<FACEBOOKFRIENDSHIP
+		ID_SOURCE="2222"
+		ID_TARGET="4444"/>
+	<FACEBOOKFRIENDSHIP
+		ID_SOURCE="4444"
+		ID_TARGET="2222"/>
+	<FACEBOOKFRIENDSHIP
+		ID_SOURCE="4444"
+		ID_TARGET="5555"/>
+	<FACEBOOKFRIENDSHIP
+		ID_SOURCE="5555"
+		ID_TARGET="4444"/>
+	<FACEBOOKFRIENDSHIP
+		ID_SOURCE="5555"
+		ID_TARGET="6666"/>
+	<FACEBOOKFRIENDSHIP
+		ID_SOURCE="6666"
+		ID_TARGET="5555"/>
+	
+	<!-- Importance -->
+	<IMPORTANCE
+		WEIGHT="0"
+		DESCRIPTION="Irrelevant"/>
+	<IMPORTANCE
+		WEIGHT="1"
+		DESCRIPTION="A little important"/>
+	<IMPORTANCE
+		WEIGHT="10"
+		DESCRIPTION="Somewhat important"/>
+	<IMPORTANCE
+		WEIGHT="50"
+		DESCRIPTION="Very important"/>
+	<IMPORTANCE
+		WEIGHT="250"
+		DESCRIPTION="Mandatory"/>
+	
+	<!-- Question -->
+	<QUESTION
+		ID_QUESTION="1"
+		CREATED="2011-04-15"
+		AUTHOR="1"
+		QUESTION="Cats or dogs - which do you like more?"
+		ANSWER_A="Cats"
+		ANSWER_B="Dogs"/>
+	<QUESTION
+		ID_QUESTION="2"
+		CREATED="2011-04-28"
+		AUTHOR="1"
+		QUESTION="Would you consider a long-distance relationship?"
+		ANSWER_A="Yes, why not?"
+		ANSWER_B="Depends, if I would be totally in love maybe."
+		ANSWER_C="No, I want to see my partner every day."/>
+	<QUESTION
+		ID_QUESTION="3"
+		CREATED="2011-05-09"
+		AUTHOR="5"
+		QUESTION="Do you have a smartphone?"
+		ANSWER_A="Yes, I'm addicted."
+		ANSWER_B="Yes, I have to."
+		ANSWER_C="No, but I'll buy one soon"
+		ANSWER_D="No, I hate them"/>
+	<QUESTION
+		ID_QUESTION="4"
+		CREATED="2011-05-25"
+		AUTHOR="5"
+		QUESTION="Are you an animal person?"
+		ANSWER_A="Yes, I love animals and I have some domestic animals myself."
+		ANSWER_B="Yes, I like them but I don't have domestic animals myself."
+		ANSWER_C="No, but I wouldn't mind having domestic animals."
+		ANSWER_D="No, I hate them."/>
+	<QUESTION
+		ID_QUESTION="5"
+		CREATED="2011-05-25"
+		AUTHOR="6"
+		QUESTION="You find a 100 dollar bill on the floor. What do you do with it?"
+		ANSWER_A="I take it to the police."
+		ANSWER_B="I take it for myself."
+		ANSWER_C="I spend it to some charity organization."
+		ANSWER_D="I leave it where it is."
+		ANSWER_E="I burn it."/>
+	<QUESTION
+		ID_QUESTION="6"
+		CREATED="2011-10-10"
+		AUTHOR="1"
+		QUESTION="Cats or dogs - which do you prefer?"
+		ANSWER_A="Cats"
+		ANSWER_B="Dogs"
+		ANSWER_C="I like both!"
+		ANSWER_D="I hate them..."/>
+	
+	<!-- Reply -->
+	<REPLY
+		ID_PERSON="1"
+		ID_QUESTION="1"
+		SKIPPED="0"
+		PRIVATE="0"
+		CRITICAL="0"
+		LAST_UPDATE="2011-04-15"
+		IMPORTANCE="50"
+		ANSWER_A="1"
+		ANSWER_B="0"
+		ANSWER_C="0"
+		ANSWER_D="0"
+		ANSWER_E="0" />
+	<REPLY
+		ID_PERSON="2"
+		ID_QUESTION="1"
+		SKIPPED="0"
+		PRIVATE="0"
+		CRITICAL="0"
+		LAST_UPDATE="2011-04-16"
+		IMPORTANCE="0"
+		ANSWER_A="1"
+		ANSWER_B="0"
+		ANSWER_C="0"
+		ANSWER_D="0"
+		ANSWER_E="0" />
+	<REPLY
+		ID_PERSON="3"
+		ID_QUESTION="1"
+		SKIPPED="0"
+		PRIVATE="1"
+		CRITICAL="0"
+		LAST_UPDATE="2011-04-20"
+		IMPORTANCE="10"
+		ANSWER_A="0"
+		ANSWER_B="1"
+		ANSWER_C="0"
+		ANSWER_D="0"
+		ANSWER_E="0" />
+	<REPLY
+		ID_PERSON="3"
+		ID_QUESTION="2"
+		SKIPPED="1"
+		PRIVATE="0"
+		CRITICAL="0"
+		LAST_UPDATE="2000-11-01"
+		IMPORTANCE="0"
+		ANSWER_A="0"
+		ANSWER_B="0"
+		ANSWER_C="0"
+		ANSWER_D="0"
+		ANSWER_E="0" />
+	<REPLY
+		ID_PERSON="3"
+		ID_QUESTION="3"
+		SKIPPED="0"
+		PRIVATE="0"
+		CRITICAL="1"
+		LAST_UPDATE="2000-02-10"
+		IMPORTANCE="50"
+		ANSWER_A="0"
+		ANSWER_B="1"
+		ANSWER_C="0"
+		ANSWER_D="0"
+		ANSWER_E="0" />
+	<REPLY
+		ID_PERSON="5"
+		ID_QUESTION="2"
+		SKIPPED="0"
+		PRIVATE="1"
+		CRITICAL="0"
+		LAST_UPDATE="2011-04-30"
+		IMPORTANCE="250"
+		ANSWER_A="1"
+		ANSWER_B="0"
+		ANSWER_C="0"
+		ANSWER_D="0"
+		ANSWER_E="0" />
+	<REPLY
+		ID_PERSON="5"
+		ID_QUESTION="3"
+		SKIPPED="0"
+		PRIVATE="0"
+		CRITICAL="0"
+		LAST_UPDATE="2000-02-10"
+		IMPORTANCE="50"
+		ANSWER_A="1"
+		ANSWER_B="0"
+		ANSWER_C="0"
+		ANSWER_D="0"
+		ANSWER_E="0" />
+	<REPLY
+		ID_PERSON="6"
+		ID_QUESTION="2"
+		SKIPPED="0"
+		PRIVATE="0"
+		CRITICAL="0"
+		LAST_UPDATE="2011-05-21"
+		IMPORTANCE="250"
+		ANSWER_A="0"
+		ANSWER_B="0"
+		ANSWER_C="1"
+		ANSWER_D="0"
+		ANSWER_E="0" />
+	
+	<!-- 
+	<SYMPTOM
+		IDSYMPTOM="1"
+		DESCRIPTION='Nausea'/>
+	<SYMPTOM
+		IDSYMPTOM="2"
+		DESCRIPTION='Vomiting'/>
+	<SYMPTOM
+		IDSYMPTOM="3"
+		DESCRIPTION='Pain'/>
+	<SYMPTOM
+		IDSYMPTOM="4"
+		DESCRIPTION='Diarrhea'/>
+	<SYMPTOM
+		IDSYMPTOM="5"
+		DESCRIPTION='Partial / Complete Obstructions'/>
+	<SYMPTOM
+		IDSYMPTOM="6"
+		DESCRIPTION='Fecal Occult Blood'/>
+	
+	
+	<PERSONSYMPTOM
+		ID_PERSON="1"
+		IDSYMPTOM="1"/>
+	<PERSONSYMPTOM
+		ID_PERSON="1"
+		IDSYMPTOM="2"/>
+	<PERSONSYMPTOM
+		ID_PERSON="3"
+		IDSYMPTOM="1"/>
+	<PERSONSYMPTOM
+		ID_PERSON="4"
+		IDSYMPTOM="1"/>
+	<PERSONSYMPTOM
+		ID_PERSON="4"
+		IDSYMPTOM="3"/>
+	<PERSONSYMPTOM
+		ID_PERSON="6"
+		IDSYMPTOM="5"/>-->
+	
+	<!-- Medication 
+	<MEDICATION
+		IDMEDICATION="1"
+		NAME="5-ASAs"/>
+	<MEDICATION
+		IDMEDICATION="2"
+		NAME="Corticosteroids (Prednisone / Entocort)"/>
+	<MEDICATION
+		IDMEDICATION="3"
+		NAME="6-MP / Imuran"/>
+	<MEDICATION
+		IDMEDICATION="4"
+		NAME="Biologics (Rmicade, Humira, Cimzia, Tysabri)"/>
+	<MEDICATION
+		IDMEDICATION="5"
+		NAME="Cyclosporin"/>
+	<MEDICATION
+		IDMEDICATION="6"
+		NAME="Percocet"/>
+	<MEDICATION
+		IDMEDICATION="7"
+		NAME="Oxycontin"/>
+	<MEDICATION
+		IDMEDICATION="8"
+		NAME="Oxycodone"/>
+	<MEDICATION
+		IDMEDICATION="9"
+		NAME="Dilaudid"/>
+	<MEDICATION
+		IDMEDICATION="10"
+		NAME="Morphine"/>
+	
+	 PersonMedication 
+	<PERSONMEDICATION
+		ID_PERSON="1"
+		IDMEDICATION="7"/>
+	<PERSONMEDICATION
+		ID_PERSON="1"
+		IDMEDICATION="8"/>
+	<PERSONMEDICATION
+		ID_PERSON="2"
+		IDMEDICATION="3"/>
+	<PERSONMEDICATION
+		ID_PERSON="4"
+		IDMEDICATION="10"/>
+	<PERSONMEDICATION
+		ID_PERSON="5"
+		IDMEDICATION="6"/>
+	<PERSONMEDICATION
+		ID_PERSON="6"
+		IDMEDICATION="2"/>-->
+	
+	<!-- FacebookGroup -->
+	<FACEBOOKGROUP
+		ID_GROUP="1"
+		NAME="Weight Watchers"
+		GID="1111"/>
+	<FACEBOOKGROUP
+		ID_GROUP="2"
+		NAME="Make the world a better place"
+		GID="2222"/>
+	<FACEBOOKGROUP
+		ID_GROUP="3"
+		NAME="Justin Bieber Fans"
+		GID="3333"/>
+	<FACEBOOKGROUP
+		ID_GROUP="4"
+		NAME="Der Bundesrat"
+		GID="4444"/>
+	
+	<!-- PersonFacebookGroup -->
+	<PERSONFACEBOOKGROUP
+		ID_PERSON="1"
+		ID_GROUP="1"
+		VISIBLE="false"/>
+	<PERSONFACEBOOKGROUP
+		ID_PERSON="1"
+		ID_GROUP="4"
+		VISIBLE="false"/>
+	<PERSONFACEBOOKGROUP
+		ID_PERSON="3"
+		ID_GROUP="2"
+		VISIBLE="false"/>
+	<PERSONFACEBOOKGROUP
+		ID_PERSON="4"
+		ID_GROUP="3"
+		VISIBLE="false"/>
+</dataset>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+       	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       	http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- Scans for @Component (@Controller, @Service, @Repository) annotated 
+		classes -->
+	<context:component-scan base-package="youapp.frontend.controllers" />
+	<context:component-scan base-package="youapp.frontend.api" />
+
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<mvc:annotation-driven conversion-service="conversionService" />
+
+	<!-- Manually sets the accepted character encoding of a StringHttpMessageConverter 
+		to UTF-8 -->
+	<!-- Necessary so that content returned by @RequestBody are rendered in 
+		UTF-8 -->
+	<!-- <bean class="youapp.EncodingPostProcessor" /> -->
+
+	<!-- Enables explicit @RequestMapping("path") annotations -->
+	<bean id="requestMappings"
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="order" value="0" />
+		<!-- <property name="interceptors"> <list> <ref bean="authenticationInterceptor" 
+			/> </list> </property> -->
+	</bean>
+
+	<!-- Enables /[resource]/[action] to [Resource]Controller class mapping -->
+	<bean id="controllerMappings"
+		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
+		<property name="order" value="1" />
+		<!-- <property name="interceptors"> <list> <ref bean="authenticationInterceptor" 
+			/> </list> </property> -->
+	</bean>
+
+	<!-- Resolve logical view names to .jsp resources in the /WEB-INF/views 
+		directory -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<!-- <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" 
+			/> -->
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles2.TilesView" />
+		<!-- <property name="prefix" value="/WEB-INF/views" /> -->
+		<!-- <property name="suffix" value=".jsp" /> -->
+	</bean>
+
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/views/tiles.xml</value>
+				<value>/WEB-INF/views/home/tiles.xml</value>
+				<value>/WEB-INF/views/statusupdate/tiles.xml</value>
+				<value>/WEB-INF/views/profile/tiles.xml</value>
+				<value>/WEB-INF/views/questions/tiles.xml</value>
+				<value>/WEB-INF/views/replies/tiles.xml</value>
+				<value>/WEB-INF/views/soulmates/tiles.xml</value>
+				<value>/WEB-INF/views/error/tiles.xml</value>
+				<value>/WEB-INF/views/logout/tiles.xml</value>
+				<value>/WEB-INF/views/matches/tiles.xml</value>
+				<value>/WEB-INF/views/messaging/tiles.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- Message source for internationalization and localization -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="classpath:messages" />
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+	
+	<!-- Interceptors -->
+	<mvc:interceptors>
+		<!-- Changes the locale when a 'locale' request parameter is sent; e.g. 
+			/?locale=de -->
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+		<mvc:interceptor>
+			<mvc:mapping path="/home/showAll.html" />
+ 			<mvc:mapping path="/error/**" />
+			<mvc:mapping path="/javascript/**" />
+			<bean id="fbSessionInterceptor" class="youapp.frontend.interceptors.FBSessionInterceptor" />
+		</mvc:interceptor>
+		<!-- Is Authenticated or rather is logged in and has an active profile -->
+		<mvc:interceptor>
+			<mvc:mapping path="/statusupdate/**" />
+			<mvc:mapping path="/login/**" />
+			<mvc:mapping path="/registration/**" />
+			<mvc:mapping path="/auth/**" />
+			<mvc:mapping path="/logout/bye.html" />
+			<mvc:mapping path="/profile/**" />
+			<mvc:mapping path="/questions/**" />
+			<mvc:mapping path="/replies/**" />
+			<mvc:mapping path="/messaging/**" />
+			<mvc:mapping path="/autocomplete/searchPeople.html" />
+			<bean id="authenticationInterceptor"
+				class="youapp.frontend.interceptors.AuthenticationInterceptor">
+				<property name="appId" value="${fb.appId}" />
+				<property name="apiKey" value="${fb.apiKey}" />
+				<property name="appSecret" value="${fb.appSecret}" />
+				<property name="scope" value="${fb.scope}" />
+				<property name="taskExecutor" ref="taskExecutor" />
+				<property name="personService" ref="personService" />
+				<property name="facebookFriendshipService" ref="facebookFriendshipService" />
+				<property name="facebookGroupService" ref="facebookGroupService" />
+				<property name="facebookPageService" ref="facebookPageService" />
+			</bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/auth/**" />
+			<mvc:mapping path="/logout/bye.html" />
+			<mvc:mapping path="/profile/**" />
+			<mvc:mapping path="/messaging/**" />
+			<mvc:mapping path="/soulmates/**" />
+			<mvc:mapping path="/questions/**" />
+			<mvc:mapping path="/replies/**" />
+			<mvc:mapping path="/matches/**" />
+			<mvc:mapping path="/facebookdata/**" />
+			<mvc:mapping path="/channel/**" />
+			<mvc:mapping path="/*" />
+			<!-- Interceptor checks for user authentication -->
+			<bean id="registrationInterceptor" class="youapp.frontend.interceptors.RegistrationInterceptor">
+				<property name="appId" value="${fb.appId}" />
+				<property name="apiKey" value="${fb.apiKey}" />
+				<property name="appSecret" value="${fb.appSecret}" />
+				<property name="scope" value="${fb.scope}" />
+				<property name="personService" ref="personService" />
+				<property name="taskExecutor" ref="taskExecutor" />
+				<property name="computeMatching" ref="computeMatching" />	
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<!-- Configure conversion service for custom conversions -->
+	<!-- org.springframework.format.support.FormattingConversionServiceFactoryBean -->
+	<!-- org.springframework.context.support.ConversionServiceFactoryBean -->
+	<bean id="conversionService"
+		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="converters">
+			<list>
+				<ref bean="stringDateConverter" />
+				<ref bean="dateStringConverter" />
+				<ref bean="stringTimestampConverter" />
+				<ref bean="timestampStringConverter" />
+				<bean class="youapp.converters.StringTagSetConverter" />
+				<bean class="youapp.converters.TagSetStringConverter" />
+			    <bean class="youapp.converters.StringLongSetConverter" />
+				<bean class="youapp.converters.LongSetStringConverter" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Custom converter -->
+	<bean id="stringDateConverter" class="youapp.converters.StringDateConverter" />
+	<bean id="dateStringConverter" class="youapp.converters.DateStringConverter" />
+	<bean id="stringTimestampConverter" class="youapp.converters.StringTimestampConverter" />
+	<bean id="timestampStringConverter" class="youapp.converters.TimestampStringConverter" />
+
+
+</beans>

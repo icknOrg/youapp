@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+		"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	
+	<definition name="matches/showFindSoulmates" extends="standardLayout">
+		<put-attribute name="title" value="matches.showFindSoulmates.title.page" />
+		<put-attribute name="content" value="/WEB-INF/views/matches/showFindSoulmates.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp" />
+	</definition>
+	
+	<definition name="matches/showMatchesList" template="/WEB-INF/views/matches/showMatchesList.jsp">
+    </definition>
+	
+</tiles-definitions>

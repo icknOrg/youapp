@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+		"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+	<definition name="replies/create" extends="standardLayout">
+		<put-attribute name="title" value="replies.create.title.page" />
+		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/replies/create.jsp" />
+	</definition>
+
+	<definition name="replies/showAll" extends="standardLayout">
+		<put-attribute name="title" value="replies.showAll.title.page" />
+		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/replies/showAll.jsp" />
+	</definition>
+
+	<definition name="replies/showSkipped" extends="standardLayout">
+		<put-attribute name="title" value="replies.showSkipped.title.page" />
+		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/replies/showSkipped.jsp" />
+	</definition>
+
+	<definition name="replies/edit" template="/WEB-INF/views/replies/edit.jsp">
+	</definition>
+	
+	<definition name="replies/showAnswer" template="/WEB-INF/views/replies/showAnswer.jsp">
+	</definition>
+
+</tiles-definitions>

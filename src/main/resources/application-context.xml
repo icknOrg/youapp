@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/tx
+     	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     	http://www.springframework.org/schema/aop 
+     	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<!-- <bean> <property name="baseUrl" value="${webapp.baseurl}"/> </bean> -->
+
+	<!-- Scans within the base package of the application for @Components to 
+		configure as beans -->
+	<context:component-scan base-package="youapp" />
+
+	<!-- Configure the data source -->
+	<!-- Connection pool for mysql jdbc connections by using the Tomcat JDBC 
+		Connection Pool. Make sure that the mysql jdbc driver is placed in tomcat's 
+		lib folder -->
+	<!-- <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" -->
+	<!-- destroy-method="close"> -->
+	<!-- <property name="driverClassName" value="${jdbc.driverClassName}" /> -->
+	<!-- <property name="url" value="${jdbc.url}" /> -->
+	<!-- <property name="username" value="${jdbc.username}" /> -->
+	<!-- <property name="password" value="${jdbc.password}" /> -->
+	<!-- <property name="jmxEnabled" value="false" /> -->
+	<!-- <property name="testWhileIdle" value="true" /> -->
+	<!-- <property name="testOnBorrow" value="true" /> -->
+	<!-- <property name="testOnReturn" value="false" /> -->
+	<!-- <property name="validationQuery" value="SELECT 1" /> -->
+	<!-- <property name="validationInterval" value="30000" /> -->
+	<!-- <property name="maxActive" value="100" /> -->
+	<!-- <property name="minIdle" value="10" /> -->
+	<!-- <property name="maxWait" value="1000" /> -->
+	<!-- <property name="initialSize" value="10" /> -->
+	<!-- <property name="removeAbandonedTimeout" value="60" /> -->
+	<!-- <property name="removeAbandoned" value="true" /> -->
+	<!-- <property name="logAbandoned" value="true" /> -->
+	<!-- <property name="minEvictableIdleTimeMillis" value="30000" /> -->
+	<!-- <property name="jdbcInterceptors" -->
+	<!-- value="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer" 
+		/> -->
+	<!-- </bean> -->
+	<!-- Classic mysql jdbc database configuration without connection pooling -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+	<!-- Configure the search index -->
+	<bean id="solrServer" class="org.apache.solr.client.solrj.impl.CommonsHttpSolrServer">
+		<constructor-arg>
+			<value>${solr.serverUrl}</value>
+		</constructor-arg>
+		<property name="connectionTimeout" value="${solr.connectionTimeout}" />
+		<property name="defaultMaxConnectionsPerHost" value="${solr.defaultMaxConnectionsPerHost}" />
+		<property name="maxTotalConnections" value="${solr.maxTotalConnections}" />
+	</bean>
+
+
+	<!-- <context:property-placeholder location="/WEB-INF/spring/datasource.properties"/> -->
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:datasource.properties</value>
+				<value>classpath:facebook.properties</value>
+				<value>classpath:matchingParameters.properties</value>
+			</list>
+		</property>
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+	</bean>
+
+	<bean id="profileUtility" class="youapp.utility.ProfileUtility"
+		scope="application">
+		<property name="baseUrl" value="${youapp.baseUrl}"></property>
+	</bean>
+
+	<bean id="timeUtility" class="youapp.utility.TimeUtility" scope="application">
+	</bean>
+
+	<!-- Configure transaction manager -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- Enabling @AspectJ support -->
+	<aop:aspectj-autoproxy />
+
+	<!-- Enable the configuration of transactional behavior based on annotations -->
+	<tx:annotation-driven transaction-manager="txManager" />
+
+	<!-- Configure log factory bean for injecting loggers into beans -->
+	<bean id="logFactory" class="org.springframework.beans.factory.config.CommonsLogFactoryBean">
+		<property name="logName" value="log" />
+	</bean>
+
+	<!-- Configure exception handler for global exceptions that are not being 
+		catched yet -->
+	<!-- Enabled only for production releases -->
+	<!-- <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
+		<property name="exceptionMappings"> <props> <prop key="java.lang.Exception">error/errorUnexpected</prop> 
+		</props> </property> </bean> -->
+
+	<!-- Configure the job for Facebook data synchronization -->
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="20" />
+		<property name="maxPoolSize" value="50" />
+		<property name="queueCapacity" value="50" />
+	</bean>
+
+
+	<!-- <bean name="matchingJobImp" class="youapp.jobs.MatchingJob"> <property 
+		name="personService" ref="personService" /> <property name="matchingService" 
+		ref="matchingService" /> <property name="facebookPageService" ref="facebookPageService" 
+		/> <property name="facebookGroupService" ref="facebookGroupService" /> <property 
+		name="facebookFriendshipService" ref="facebookFriendshipService" /> </bean> -->
+
+
+	<!-- Configure the scheduling of the matching job -->
+	<!-- Configure the bean containing the job -->
+	<!-- <bean name="matchingJob" class="org.springframework.scheduling.quartz.JobDetailBean"> 
+		<property name="jobClass" value="youapp.jobs.MatchingJob" /> <property name="jobDataAsMap"> 
+		<map> <entry key="timeout" value="5" /> <entry key="computeMatching" value-ref="computeMatching" 
+		/> </map> </property> </bean> Configure the scheduler: Start delay of 10 
+		seconds, repeated every 60 seconds / 1 minute. <bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean"> 
+		<property name="jobDetail" ref="matchingJob" /> <property name="startDelay" 
+		value="1000" /> <property name="repeatInterval" value="60000" /> </bean> 
+		Wire everything together <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean"> 
+		<property name="triggers"> <list> <ref bean="simpleTrigger" /> </list> </property> 
+		<property name="applicationContextSchedulerContextKey"> <value>applicationContext</value> 
+		</property> </bean> -->
+
+	<!-- Resolve views based on bean names (optional) -->
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+
+	<!-- json view, capable of converting any POJO to json format -->
+	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+</beans>

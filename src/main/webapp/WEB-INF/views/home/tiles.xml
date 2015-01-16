@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+		"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+		
+<tiles-definitions>
+	
+	<definition name="home/showAll" extends="standardLayout">
+		<put-attribute name="title" value="home.showall.title.page" />
+		<put-attribute name="content" value="/WEB-INF/views/home/showAll.jsp" />
+	</definition>
+	
+	<definition name="home/about" extends="standardLayout">
+		<put-attribute name="title" value="home.showall.title.page" />
+		<put-attribute name="content" value="/WEB-INF/views/home/about.jsp" />
+	</definition>
+	
+	<definition name="home/termsofuse" extends="standardLayout">
+		<put-attribute name="title" value="home.showall.title.page" />
+		<put-attribute name="content" value="/WEB-INF/views/home/termsofuse.jsp" />
+	</definition>
+	
+	
+</tiles-definitions>

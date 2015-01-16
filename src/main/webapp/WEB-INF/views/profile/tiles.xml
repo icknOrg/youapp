@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+		"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+	<definition name="profile/showOwn" extends="standardLayout">
+		<put-attribute name="title" value="profile.show.title.page.showOwn" />
+		<put-attribute name="content"  value="/WEB-INF/views/profile/showOwn.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp"/>
+	</definition>
+
+    <definition name="profile/showSoulmate" extends="standardLayout">
+        <put-attribute name="title" value="profile.show.title.page.showSoulmate" />
+        <put-attribute name="content" value="/WEB-INF/views/profile/showSoulmate.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp"/>
+    </definition>
+    
+    <definition name="profile/showPublic" extends="standardLayout">
+        <put-attribute name="title" value="profile.show.title.page.showPublic" />
+        <put-attribute name="content" value="/WEB-INF/views/profile/showPublic.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp"/>
+    </definition>
+
+	<definition name="profile/showProfilePart" template="/WEB-INF/views/profile/showProfilePart.jsp">
+	</definition>
+
+	<definition name="profile/edit" template="/WEB-INF/views/profile/edit.jsp">
+	</definition>
+
+	<definition name="profile/register" extends="standardLayout">
+		<put-attribute name="title" value="profile.register.title.page" />
+		<put-attribute name="content" value="/WEB-INF/views/profile/register.jsp"/>
+	</definition>
+
+</tiles-definitions>

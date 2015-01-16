@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DistanceIntervalsWeights>
+	<distanceInterval>
+		<left>0</left>
+		<leftClosed>true</leftClosed>
+		<right>100</right>
+		<rightClosed>true</rightClosed>
+		<weight>1</weight>
+	</distanceInterval>
+	<distanceInterval>
+		<left>100</left>
+		<leftClosed>false</leftClosed>
+		<right>1000</right>
+		<rightClosed>true</rightClosed>
+		<weight>0.8</weight>
+	</distanceInterval>
+	<distanceInterval>
+		<left>1000</left>
+		<leftClosed>false</leftClosed>
+		<right>5000</right>
+		<rightClosed>true</rightClosed>
+		<weight>0.5</weight>
+	</distanceInterval>
+	<distanceInterval>
+		<left>5000</left>
+		<leftClosed>false</leftClosed>
+		<right>10000</right>
+		<rightClosed>true</rightClosed>
+		<weight>0.2</weight>
+	</distanceInterval>
+	<distanceInterval>
+		<left>10000</left>
+		<leftClosed>true</leftClosed>
+		<right>-1</right>
+		<rightClosed></rightClosed>
+		<weight>0</weight>
+	</distanceInterval>
+</DistanceIntervalsWeights>

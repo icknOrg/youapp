@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+		"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	
+	<definition name="questions/create" extends="standardLayout">
+		<put-attribute name="title" value="questions.create.page.title" />
+		<put-attribute name="content" value="/WEB-INF/views/questions/create.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp" />
+	</definition>
+	
+	<definition name="questions/confirm" extends="standardLayout">
+		<put-attribute name="title" value="questions.confirm.title.page" />
+		<put-attribute name="content" value="/WEB-INF/layouts/menu.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp" />
+	</definition>
+	
+	<definition name="questions/show" extends="standardLayout">
+		<put-attribute name="title" value="questions.show.title.page" />
+		<put-attribute name="content" value="/WEB-INF/views/questions/show.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp" />
+	</definition>
+	
+	<definition name="questions/showAll" extends="standardLayout">
+		<put-attribute name="title" value="questions.showAll.title.page" />
+		<put-attribute name="content" value="/WEB-INF/views/questions/showAll.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp" />
+	</definition>
+	
+</tiles-definitions>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+		"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+	<definition name="messaging/createMessage"
+		template="/WEB-INF/views/messaging/createMessage.jsp">
+	</definition>
+
+	<definition name="messaging/showMyConversations" extends="standardLayout">
+		<put-attribute name="title" value="messaging.showMyConversations.title.page" />
+		<put-attribute name="content" value="/WEB-INF/views/messaging/showMyConversations.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp" />
+	</definition>
+
+	<definition name="messaging/showConversation" extends="standardLayout">
+		<put-attribute name="title" value="messaging.showConversation.title.page" />
+		<put-attribute name="content" value="/WEB-INF/views/messaging/showConversation.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp" />
+	</definition>
+
+	<definition name="messaging/showMessagesList"
+		template="/WEB-INF/views/messaging/showMessagesList.jsp">
+	</definition>
+
+</tiles-definitions>

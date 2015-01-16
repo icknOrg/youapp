@@ -15,6 +15,14 @@
 	    <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css">
 	   	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/jquery.tagit.css">
 	   	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/autoSuggest.css">
+	   	
+	   	<!-- Bootstrap Styles --->
+	   	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/bootstrap.css">
+	   	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/bootstrapAdmin.css">
+	   	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/bootstrapFontAwesome.css">
+	   	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/bootstrapMetisMenu.css">
+	   	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/bootstrapMorris.css">
+	   	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/bootstrapTimeline.css">
 	    
 	    <!-- Google Fonts-->
     	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>

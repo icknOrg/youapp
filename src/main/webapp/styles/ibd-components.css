@@ -1,0 +1,17 @@
+.profile-picture {
+	overflow: hidden;
+	margin-left: 30px;
+	width: 150px;
+	height: 150px;
+	border-radius: 100px;
+	background-position: center;
+	background-size: cover;
+}
+
+.container {
+	padding: 20px 0px;
+}
+
+h1, h2, h3, h4	{
+	color: #a9a9a9;
+}

@@ -4,80 +4,81 @@
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ page import="org.joda.time.DateTime" %>
-<%@ page import="org.joda.time.Years" %>
+<%@ page import="org.joda.time.DateTime"%>
+<%@ page import="org.joda.time.Years"%>
 
 <div class="numbers-column">
-	<span class="numberchange"
-		style="font-weight: 200 !important; padding-right: 15px;"><c:out
-			value="${person.firstName}" /></span> <span class="numberdescription"><spring:message
-			code="profile.show.firstName.label" /></span>
+	<span class="numberdescription"><spring:message
+			code="profile.show.firstName.label" /></span>: <b><span
+		class="numberchange"><c:out value="${person.firstName}" /></span></b>
+
+</div>
+
+<div class="numbers-column">
+	<span class="numberdescription"><spring:message
+			code="profile.show.lastName.label" /></span>: <b> <span
+		class="numberchange"><c:out value="${person.lastName}" /></span></b>
+</div>
+
+<div class="numbers-column">
+	<span class="numberdescription"><spring:message
+			code="profile.show.location.label" /></span>: <b><span
+		class="numberchange"><c:out value="${person.location.name}" /></span>
+	</b>
 </div>
 <div class="numbers-column">
-	<span class="numberchange" style="font-weight: 200 !important;"><c:out
-			value="${person.lastName}" /></span> <span class="numberdescription"><spring:message
-			code="profile.show.lastName.label" /></span>
-</div>
-<div class="numbers-column">
-	<span class="numberchange"
-		style="font-weight: 200 !important; padding-right: 15px;"><c:out
-			value="${person.location.name}" /></span> <span class="numberdescription"><spring:message
-			code="profile.show.location.label" /></span>
-</div>
-<div class="numbers-column">
-	
+
 	<c:choose>
 		<c:when test="${param.showOwnProfile}">
-			<span class="numberchange" style="font-weight: 200 !important; padding-right: 15px;">
-				<c:out value="${person.birthday}" />
-			</span>
-			<span class="numberdescription"><spring:message code="profile.show.birthday.label" /></span>
+			<span class="numberdescription"><spring:message
+					code="profile.show.birthday.label" /></span>:
+			<b><span class="numberchange"> <c:out
+						value="${person.birthday}" />
+			</span></b>
 		</c:when>
 		<c:otherwise>
- 			<span class="numberchange" style="font-weight: 200 !important; padding-right: 15px;">
- 				<c:out value="${person.age}" />
-			</span> 
-			<span class="numberdescription"><spring:message code="profile.show.age.label" /></span>
+			<span class="numberdescription"><spring:message
+					code="profile.show.age.label" /></span>:
+			<b><span class="numberchange"> <c:out
+						value="${person.age}" />
+			</span></b>
 		</c:otherwise>
-	</c:choose> 	
+	</c:choose>
 </div>
-<br>
-<br>
 <div class="numbers-column">
-	<span class="numberchange" style="font-weight: 200 !important;">
-		<c:choose>
-			<c:when test="${person.gender == 'M'}">
-				<spring:message code="profile.show.gender.male" />
-			</c:when>
-			<c:otherwise>
-				<spring:message code="profile.show.gender.female" />
-			</c:otherwise>
-		</c:choose>
-	</span> <span class="numberdescription"><spring:message
-			code="profile.show.gender.label" /></span>
+	<span class="numberdescription"><spring:message
+			code="profile.show.gender.label" /></span>: <b> <span
+		class="numberchange"> <c:choose>
+				<c:when test="${person.gender == 'M'}">
+					<spring:message code="profile.show.gender.male" />
+				</c:when>
+				<c:otherwise>
+					<spring:message code="profile.show.gender.female" />
+				</c:otherwise>
+			</c:choose>
+	</span></b>
 </div>
 <div class="clear"></div>
 <br>
 <div id="description_box">
-	<textarea readonly class="numberchange"
-		style="font-weight: 200 !important;">
+	<textarea readonly class="numberchange">
 	<c:out value="${person.description}" />
 	</textarea>
 </div>
 max 140 chars. This information will appear in your public profile.
 <br>
 <br>
-<h2 class="content-heading clear" style="border-bottom: 0px solid #fff;">
+<h3 class="content-heading clear">
 	<spring:message code="profile.show.headings.myTags" />
-</h2>
+</h3>
 <ul>
 	<c:forEach items="${person.profileTags}" var="profileTag">
 		<li><c:out value="${profileTag.name}" /></li>
 	</c:forEach>
 </ul>
-<h2 class="content-heading" style="border-bottom: 0px solid #fff;">
+<h3 class="content-heading">
 	<spring:message code="profile.show.headings.mySymptoms" />
-</h2>
+</h3>
 
 <ul>
 	<c:forEach items="${person.symptoms}" var="symptom">
@@ -85,35 +86,38 @@ max 140 chars. This information will appear in your public profile.
 	</c:forEach>
 </ul>
 
-<h2 class="content-heading" style="border-bottom: 0px solid #fff;">
+<h3>
 	<spring:message code="profile.show.headings.myMedications" />
-</h2>
+</h3>
 <ul>
 	<c:forEach items="${person.medications}" var="medication">
 		<li><c:out value="${medication.name}" /></li>
 	</c:forEach>
 </ul>
 
-<h2 class="content-heading" style="border-bottom: 0px solid #fff;">
+<h3 class="content-heading">
 	<spring:message code="profile.show.headings.Matching" />
-</h2>
-<h2 style="border-bottom: 20px;">
-	<form:checkbox path="person.useQuestionMatching"
+</h3>
+
+	<b><form:checkbox path="person.useQuestionMatching"
 		value="${person.useQuestionMatching}" disabled="true" label="Quiz"
-		style="margin-left:10px " />
-	<form:checkbox path="person.useFBMatching"
+		style="margin-left:10px " /></b>
+		
+	<b><form:checkbox path="person.useFBMatching"
 		value="${person.useFBMatching}" disabled="true" label="Facebook info"
-		style="margin-left:10px" />
-	<form:checkbox path="person.useDistanceMatching"
+		style="margin-left:10px" /></b>
+		
+	<b><form:checkbox path="person.useDistanceMatching"
 		value="${person.useDistanceMatching}" disabled="true" label="Distance"
-		style="margin-left:10px" />
-	<form:checkbox path="person.useSymptomsMatching"
+		style="margin-left:10px" /></b>
+		
+	<b><form:checkbox path="person.useSymptomsMatching"
 		value="${person.useSymptomsMatching}" disabled="true" label="Symptoms"
-		style="margin-left:10px" />
-	<form:checkbox path="person.useMedicationMatching"
+		style="margin-left:10px" /></b>
+		
+	<b><form:checkbox path="person.useMedicationMatching"
 		value="${person.useMedicationMatching}" disabled="true"
-		label="Medication" style="margin-left:10px" />
-</h2>
+		label="Medication" style="margin-left:10px" /></b>
 
 
 

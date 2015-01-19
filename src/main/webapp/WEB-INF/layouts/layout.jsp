@@ -51,14 +51,19 @@
 
 
 <!-- scripts -->
+	
+
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/javascript/globalVariables.html"></script>
+
+
+
+
 <!-- jQuery -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/javascript/globalVariables.html"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
-	type="text/javascript"></script>
+
 <script
 	src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"
 	type="text/javascript"></script>
@@ -72,6 +77,7 @@
 	src="${pageContext.request.contextPath}/js/jquery.placeholder.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery.autoSuggest.modified.js"></script>
+	
 <script type="text/javascript">
 	jQuery.fn.topLink = function(settings) {
 		settings = jQuery.extend({
@@ -199,9 +205,7 @@
 
 			<!-- /.panel-body -->
 			<div class="panel-footer">
-				<div class="input-group">
 					<tiles:insertAttribute name="footer" />
-				</div>
 			</div>
 			<!-- /.panel-footer -->
 

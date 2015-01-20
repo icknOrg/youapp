@@ -8,22 +8,53 @@
 <jsp:useBean id="timeUtility" class="youapp.utility.TimeUtility"
 	scope="application" />
 
+	
+	 <div class="panel-heading">
+	<i class="fa fa-clock-o fa-fw"></i>
+	Timeline
+	</div>
 <c:forEach items="${statusUpdates}" var="statusUpdate">
-	<div class="status-update">
-		<div class="profile-picture"
-			style="width:63px; height:63px; overflow: hidden; border-radius:100px; background-image: url(${profileUtility.getProfilePictureUrl(statusUpdate.person.id)}); background-position: center; background-size: cover;"></div>
-		<div class="content">
-			<c:out value="${statusUpdate.person.firstName}" />
-			says
-			<c:out value="${statusUpdate.description}" />
-			<span class="when" title="${statusUpdate.when}"><c:out
+	
+					
+	<div class="panel-body">
+	
+	 <ul class="timeline">
+			<li>
+				<div class="timeline-badge" style="width:63px; height:63px; overflow: hidden; border-radius:100px; background-image: url(${profileUtility.getProfilePictureUrl(statusUpdate.person.id)}); background-position: center; background-size: cover;"></div>
+					
+					
+		
+		  <div class="timeline-panel">
+		  <div class="timeline-heading">
+		  <h4 class="timeline-title"><c:out value="${statusUpdate.person.firstName} " />says</h4>
+		<p>
+		<small class="text-muted">
+		<i class="fa fa-clock-o"></i>
+		<span class="when" title="${statusUpdate.when}"><c:out
 					value="${timeUtility.getElapsedTime(statusUpdate.when, pageContext.response.locale)}" /></span>
+		</small>
+		</p>
 		</div>
-		<c:if test="${myProfile.id eq statusUpdate.person.id}">
+		
+		<div class="timeline-body">
+			<p><c:out value="${statusUpdate.description}" /></p>
+			
+			<p><c:if test="${myProfile.id eq statusUpdate.person.id}">
 			<button data-statusupdatetimestamp="${statusUpdate.when}"
 				class="delete-status-update">
 				<spring:message code="statusupdate.showMyStream.delete.button" />
 			</button>
-		</c:if>
-	</div>
+		</c:if></p>
+		</div>
+		</div>
+	
+		
+		
+	
+		
+	</li>
+		</ul>
+		</div>
+	
+
 </c:forEach>

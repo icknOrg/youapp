@@ -41,7 +41,7 @@ $(document).ready(function(){
 	</div>
 
 	<div class="numbers-column">
-		<span class="numberchange" style="font-weight: 200 !important;">
+		<span class="numberchange" >
 			<form:input path="lastName" /> <form:errors path="lastName"
 				cssClass="error" />
 		</span> <span class="numberdescription"> <spring:message

@@ -1,11 +1,11 @@
-.profile-picture {
-	overflow: hidden;
-	margin-left: 30px;
-	width: 150px;
-	height: 150px;
-	border-radius: 100px;
-	background-position: center;
-	background-size: cover;
+/*
+*	Hier you find styles which differ from bootstrap and template SB Admin v2.0
+* 	(Styles here are overriding every other stylesheet because it's the last one to load)
+*/
+
+/* General */
+body {
+	behavior:url("csshover.htc");
 }
 
 .container {
@@ -16,6 +16,91 @@ h1, h2, h3, h4	{
 	color: #a9a9a9;
 }
 
+.jumbotron i {
+	color: #db524b;
+}
+
+
+/* Profile */
+
+/*	Statusupdate Hierarchie:
+*	.statusupdate
+*  		.profile-picture
+* 		.information-input
+*			.smilies
+*/
+
+.statusupdate {
+	width: 100%;
+	height: 200px;
+	margin-bottom: 10px;
+}
+ 
+
+.statusupdate .profile-picture {
+	width: 152px;
+}
+
+.statusupdate .profile-picture button{
+	margin-top: 10px;
+	width: 100%;
+}
+
+.statusupdate .profile-picture img{
+	max-height: 150px;
+	width: auto;
+}
+
+.statusupdate .information-input {
+	width: 100%;
+}
+
+.statusupdate .information-input .smilies {
+	height: 50px;
+}
+
+.statusupdate .information-input textarea{
+	height: 100px;
+	width: 100%;
+}
+
+.statusupdate .information-input button {
+	margin-top: 10px;	
+}
+
+.profile-description blockquote{
+	height: 100px;
+}
+
+/* Profil box (With picture and buttons)*/
+.profilBox {
+	width: 100%;
+	height: 150px;
+	margin-bottom: 10px;
+}
+ 
+
+
+.profilBox .profile-picture img{
+	height: 150px;
+	width: auto;
+}
+
+.profilBox .information-input {
+	width: 100%;
+}
+
+.profilBox .information-input button {
+	margin-bottom: 10px;
+}
+
+.glyphicon-profile-numbers {
+	font-size: 50px;
+}
+
+
+/* Footer */
+
 .panel-footer {
 	text-align: center;	
 }
@@ -23,8 +108,4 @@ h1, h2, h3, h4	{
 .panel-footer ul li{
 	list-style: none;
     display: inline;
-}
-
-.jumbotron i {
-	color: #db524b;
 }

@@ -21,7 +21,7 @@
 		</button>
 		<a class="navbar-brand"
 			href="<c:out value='${pageContext.request.contextPath}'/>"> <img
-			class="logo" style="height: 20px;" src="${pageContext.request.contextPath}/img/logo.gif" "/>
+			class="logo" style="max-height: 37px; width: auto;" src="${pageContext.request.contextPath}/img/logo.png" "/>
 		</a>
 	</div>
 	<!-- /.navbar-header -->

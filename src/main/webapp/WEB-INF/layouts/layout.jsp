@@ -17,8 +17,7 @@
 <title><spring:message code="${title}" /></title>
 
 
-<!-- Style sheets -->
-<!-- OLD
+<!-- Style sheets -
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/styles/style.css"
 	media="screen, projection" />
@@ -26,12 +25,9 @@
 	href="${pageContext.request.contextPath}/styles/tempStyle.css"
 	media="screen, projection" />
 <link rel="stylesheet" type="text/css"
-	href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css">
-<link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/styles/jquery.tagit.css">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/styles/autoSuggest.css">
- -->
 
 <!-- Bootstrap Styles --->
 <link rel="stylesheet" type="text/css"
@@ -63,10 +59,6 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-
-<script
-	src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"
-	type="text/javascript"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/tag-it.js"></script>
 <script type="text/javascript"

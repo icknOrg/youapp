@@ -126,9 +126,12 @@ $(document).ready(
 		
 		<c:choose> 
 			<c:when test="${not empty statusUpdates}">   
+			
+		
 				<div id="status-updates" class="clear" data-firststatusupdate="${statusUpdates[0].when}" data-offset="${statusupdatesOffset}" data-resultsize="${statusupdatesResultSize}">
 		            <jsp:include page="showStatusUpdatesList.jsp"/>
 				</div>
+				
 				<span id="no-more-status-updates" style="display: none;">
 				   <spring:message code="statusupdate.showMyStream.loadMoreStatusUpdates.noMoreAvailable"/>
 				</span>

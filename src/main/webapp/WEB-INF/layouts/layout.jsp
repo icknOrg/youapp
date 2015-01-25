@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <tiles:importAttribute name="title" />
         <title><spring:message code="${title}"/></title>
-
+	   
 
 <!-- Bootstrap Styles --->
 <link rel="stylesheet" type="text/css"

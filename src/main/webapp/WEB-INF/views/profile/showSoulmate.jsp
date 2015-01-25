@@ -11,8 +11,7 @@
 	$(document)
 			.ready(
 					function() {
-						$('button#remove-soulmate')
-								.click(
+						$('button#remove-soulmate').click(
 										function() {
 											var button = $(this);
 
@@ -54,6 +53,7 @@
 															messages['profile.show.soulmates.remove.confirmDialog.title'],
 															buttons);
 										});
+						
 
 						$('button#block-person')
 								.click(

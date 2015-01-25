@@ -134,6 +134,7 @@
 				code="soulmates.showMySoulmates.title.soulmateRequests" />
 		</h2>
 		<c:forEach items="${requestedPeopleList}" var="personRequested">
+		
 			<div class="row ">
 				<div class="profilBox">
 					<div class="col-xs-6 col-md-2">
@@ -174,6 +175,7 @@
 					</div>
 				</div>
 			</div>
+			
 		</c:forEach>
 	</div>
 </c:if>
@@ -188,7 +190,7 @@
 			<div class="chat row">
 				<c:forEach items="${soulmatesList}" var="soulmate">
 
-					<div class="col-xs-6 col-sm-4 left clearfix">
+					<div class="col-xs-12 col-sm-4 left clearfix">
 						<span class="chat-img pull-left"> <img
 							src="${profileUtility.getProfileThumbnailUrl(soulmate.id)}"
 							alt="User Avatar" class="img-circle" />
@@ -249,6 +251,8 @@
 	</c:otherwise>
 </c:choose>
 
+
+
 <c:if test="${not empty personBlockedList}">
 	<div id="people-blocked">
 		<h2 class="content-heading">
@@ -258,8 +262,8 @@
 			<c:forEach items="${personBlockedList}" var="personBlocked">
 				<li class="person-blocked"><c:out
 						value="${personBlocked.firstName} (@${personBlocked.nickName})" /><br>
-					<button class="btn btn-warning" data-personid="${personBlocked.id}"
-						class="unblock-person">
+					<button data-personid="${personBlocked.id}"
+						class="unblock-person btn btn-warning">
 						<spring:message code="soulmates.showMySoulmates.unblock.button" />
 					</button></li>
 			</c:forEach>

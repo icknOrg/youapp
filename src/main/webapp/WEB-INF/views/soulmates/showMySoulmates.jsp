@@ -7,6 +7,8 @@
 
 <jsp:useBean id="profileUtility" type="youapp.utility.ProfileUtility"
 	scope="application" />
+<jsp:useBean id="timeUtility" class="youapp.utility.TimeUtility"
+	scope="application" />
 
 <script type="text/javascript">
 	$(document)

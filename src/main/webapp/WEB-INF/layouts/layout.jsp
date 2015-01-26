@@ -42,6 +42,7 @@
 	    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.scrollTo-1.4.0-min.js"></script>
 	    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.placeholder.min.js"></script>
 	    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.autoSuggest.modified.js"></script>
+	
 		<script type="text/javascript">
 		jQuery.fn.topLink = function(settings) {
 			settings = jQuery.extend({
@@ -84,6 +85,7 @@
 			});
 		});
 		</script>
+		
 		<c:if test="${sessionScope.justLoggedIn && sessionScope.isRegistered}">
 		  <script type="text/javascript">
 		  $(document).ready(
@@ -117,10 +119,34 @@
 	                        closeOnEscape: false,
 	                        open: function(event, ui) { $(".ui-dialog-titlebar").hide(); }
 	                  });
+
+						$('#conversationParticipants')
+						.autoSuggest(
+								baseUrl
+										+ '/autocomplete/searchPeople.html',
+								{
+									retrieveLimit: 5,
+				    				queryParam : 'name',
+									selectedItemProp : 'name',
+									selectedValuesProp : 'id',
+									searchObjProps : 'name',
+									minChars : 2,
+									startText : messages['messaging.sendMessage.conversationParticipantsAutocomplete.startText'],
+									emptyText : messages['messaging.sendMessage.conversationParticipantsAutocomplete.emptyText'],
+									asHtmlID : 'conversationparticipants',
+									formatList : function(data, elem) {
+										return elem
+												.html('<img src="' + data.thumbnailUrl + '" />'
+														+ data.name);
+									},
+
+								});
 			        });
 		  </script>
 		</c:if>
+	
 	</head>
+	
 	<body>
 	
 		<div id="wrapper">

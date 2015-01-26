@@ -22,7 +22,12 @@
 		<put-attribute name="content" value="/WEB-INF/views/replies/showSkipped.jsp" />
 	</definition>
 
-	<definition name="replies/edit" template="/WEB-INF/views/replies/edit.jsp">
+	
+	
+	<definition name="replies/edit" extends="standardLayout">
+		<put-attribute name="title" value="replies.edit.title.page" />
+		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/replies/edit.jsp" />
 	</definition>
 	
 	<definition name="replies/showAnswer" template="/WEB-INF/views/replies/showAnswer.jsp">

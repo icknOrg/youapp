@@ -19,21 +19,47 @@
 			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
 			<span class="icon-bar"></span> <span class="icon-bar"></span>
 		</button>
+		<div class="col-12 col-6">
 		<a class="navbar-brand"
+
 			href="<c:out value='${pageContext.request.contextPath}'/>"> <img
-			class="logo" style="max-height: 37px; width: auto;" src="${pageContext.request.contextPath}/img/logo.png" "/>
+			class="logo" style="max-height: 37px; width: auto;" src="${pageContext.request.contextPath}/img/logo.png" />
+
+
 		</a>
+
+		
+			<div class="input-group custom-search-form">
+				<input class="form-control" type="text" placeholder="Seach...">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button">
+						<i class="fa fa-search"></i>	
+					</button>
+				</span>
+			</div>
+	 	
+		
+		
+		
+       
 	</div>
+	
+	<div id="navbar" class="navbar-collapse collapse">
+<form class="navbar-form navbar-right">
+
+
+
+
+</form>
+</div>
+
+	</div>	
+
 	<!-- /.navbar-header -->
 
 
-	<!-- 
-<div class="divlogo">
-	<a href="<c:out value='${pageContext.request.contextPath}'/>" >
-		<img class="logo" src="${pageContext.request.contextPath}/img/logo.gif" style="float:left; "/>
-	</a>
-</div>
- -->
+
+
 
 
 	<tiles:insertAttribute name="menu" ignore="true" />

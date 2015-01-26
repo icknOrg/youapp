@@ -25,6 +25,7 @@
 	href="${pageContext.request.contextPath}/styles/bootstrapTimeline.css">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/styles/ibd-components.css">
+	
 
 
 	    <!-- Google Fonts-->
@@ -35,7 +36,7 @@
 	    <script type="text/javascript" src="${pageContext.request.contextPath}/javascript/globalVariables.html"></script>
 	    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
 	    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-	    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
+	    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js" type="text/javascript"></script>
 	    <script type="text/javascript" src="${pageContext.request.contextPath}/js/tag-it.js"></script>
 	    <script type="text/javascript" src="${pageContext.request.contextPath}/js/general.js"></script>
 	    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.scrollTo-1.4.0-min.js"></script>
@@ -153,7 +154,7 @@
 	<script src="${pageContext.request.contextPath}/js/metisMenu.js"></script>
 
 	<!-- Custom Theme JavaScript -->
-	<script src="${pageContext.request.contextPath}/js/xsbAdmin.js"></script>
+	<script src="${pageContext.request.contextPath}/js/sbAdmin.js"></script>
 	
 	
 	</body>

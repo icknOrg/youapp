@@ -1,10 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<jsp:useBean id="profileUtility" type="youapp.utility.ProfileUtility" scope="application"/>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/replyForm.js"></script>
+
+
 <script type="text/javascript">  
     function insertData(data){
     	if($.trim(data) !== ""){    	
@@ -51,6 +53,26 @@
             });
 </script>
 
+	<!-- Status update (With profil picture) -->
+	<div class="row statusupdate">
+		<div class="col-xs-2 col-sm-2">
+			<div class="profile-picture">
+				<div id="profile-picture">
+					<img class="img-thumbnail"
+						src="${ profileUtility.getProfilePictureUrl( myProfil.id)}"/>
+				</div>
+				</div>
+			</div>
+			
+				</div>
+				
+					<!-- Tab Navigation -->
+	<jsp:include page="navigateProfile.jsp">
+		<jsp:param name="showSite" value="create.jsp" />
+	</jsp:include>
+				
+<!-- End Main Content -->
+
 <h2 class="content-heading"><spring:message code="replies.create.headings.title" /></h2>
 <h3 class="content-heading"><spring:message code="replies.create.headings.subtitle"/></h3>
 <p id="message-no-more-questions" style="display:none;"><spring:message code="replies.create.empty.label"/></p>
@@ -72,6 +94,8 @@
 </div>
 <br />
 <div id="buttons">
-    <button class="btn-green btn-start btn-fullwidth" id="save-question"><spring:message code="replies.create.button.submit"/></button>
-    <button class="btn-yellow btn-start btn-fullwidth" id="skip-question"><spring:message code="replies.create.button.skip"/></button>
+    <button class="btn btn-success btn-fullwidth" id="save-question"><spring:message code="replies.create.button.submit"/></button>
+    <button class="btn btn-start btn-fullwidth" id="skip-question"><spring:message code="replies.create.button.skip"/></button>
 </div>
+
+			

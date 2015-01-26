@@ -88,35 +88,4 @@
 <h2 class="content-heading"><spring:message code="replies.showAll.headings.title"/></h2>
 <h3 class="content-heading"><spring:message code="replies.showAll.headings.subtitle"/></h3>
 
-	<c:forEach items="${repliesList}" var="reply">
-		<li class="question" data-questionid="${reply.questionId}">
-		    <c:out value="${questionMap[reply.questionId].question}" escapeXml="false" />
-			
-			<button class="edit-question floatr"><spring:message code="replies.showAll.edit.button.edit" /></button>
-			<button class="save-question floatr" style="display: none;"><spring:message code="replies.showAll.edit.button.save" /></button>
-			<button class="delete-question floatr"><spring:message code="replies.showAll.remove.button" /></button>
-			<ul>
-				<c:if test="${not empty questionMap[reply.questionId].answerA}">
-					<li <c:if test="${reply.answerA}"> class="selected"</c:if>><c:out
-							value="${questionMap[reply.questionId].answerA}" /></li>
-				</c:if>
-				<c:if test="${not empty questionMap[reply.questionId].answerB}">
-					<li <c:if test="${reply.answerB}"> class="selected"</c:if>><c:out
-							value="${questionMap[reply.questionId].answerB}" /></li>
-				</c:if>
-				<c:if test="${not empty questionMap[reply.questionId].answerC}">
-					<li <c:if test="${reply.answerC}"> class="selected"</c:if>><c:out
-							value="${questionMap[reply.questionId].answerC}" /></li>
-				</c:if>
-				<c:if test="${not empty questionMap[reply.questionId].answerD}">
-					<li <c:if test="${reply.answerD}"> class="selected"</c:if>><c:out
-							value="${questionMap[reply.questionId].answerD}" /></li>
-				</c:if>
-				<!-- as reserve for other implementations -->
-				<c:if test="${not empty questionMap[reply.questionId].answerE}">
-					<li <c:if test="${reply.answerE}"> class="selected"</c:if>><c:out
-							value="${questionMap[reply.questionId].answerE}" /></li>
-				</c:if>
-			</ul>
-		</li>
-	</c:forEach>
+

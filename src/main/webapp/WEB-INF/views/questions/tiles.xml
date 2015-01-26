@@ -28,4 +28,6 @@
 		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp" />
 	</definition>
 	
+	
+
 </tiles-definitions>

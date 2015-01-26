@@ -1,24 +1,41 @@
+@import "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css";
+@import "http://fonts.googleapis.com/css?family=Roboto:400,500";
 /*
 *	Hier you find styles which differ from bootstrap and template SB Admin v2.0
 * 	(Styles here are overriding every other stylesheet because it's the last one to load)
 */
 
-/* General */
-body {
-	behavior: url("csshover.htc");
+
+
+
+.profile-picture {
+	overflow: hidden;
+	margin-left: 30px;
+	width: 150px;
+	height: 150px;
+	border-radius: 100px;
+	background-position: center;
+	background-size: cover;
+
+
 }
 
 .container {
 	padding: 20px 0px;
 }
 
+
 h1, h2, h3, h4 {
 	color: #a9a9a9;
+
+h1, h2, h3, h4	{
+color: #a9a9a9;
+
 }
 
-.jumbotron i {
+/*.jumbotron i {
 	color: #db524b;
-}
+*/
 
 /*!
  * With help from:
@@ -216,6 +233,99 @@ h1, h2, h3, h4 {
 	list-style: none;
 	display: inline;
 }
+
 /* Matches */
 .show-matches {
 }
+
+.jumbotron i {
+	color: #db524b;
+}
+
+.box > .icon { text-align: center; position: relative; }
+.box > .icon > .image { position: relative; z-index: 2; margin: auto; width: 88px; height: 88px; border: 8px solid white; line-height: 88px; border-radius: 50%; background: #63B76C; vertical-align: middle; }
+.box > .icon:hover > .image { background: #333; }
+.box > .icon > .image > i { font-size: 37px !important; color: #fff !important; }
+.box > .icon:hover > .image > i { color: white !important; }
+.box > .icon > .info { margin-top: -24px; background: rgba(0, 0, 0, 0.04); border: 1px solid #e0e0e0; padding: 15px 0 10px 0; }
+.box > .icon:hover > .info { background: rgba(0, 0, 0, 0.04); border-color: #e0e0e0; color: white; }
+.box > .icon > .info > h3.title { font-family: "Roboto",sans-serif !important; font-size: 16px; color: #222; font-weight: 500; }
+.box > .icon > .info > p { font-family: "Roboto",sans-serif !important; font-size: 13px; color: #666; line-height: 1.5em; margin: 20px;}
+.box > .icon:hover > .info > h3.title, .box > .icon:hover > .info > p, .box > .icon:hover > .info > .more > a { color: #222; }
+.box > .icon > .info > .more a { font-family: "Roboto",sans-serif !important; font-size: 12px; color: #222; line-height: 12px; text-transform: uppercase; text-decoration: none; }
+.box > .icon:hover > .info > .more > a { color: #fff; padding: 6px 8px; background-color: #63B76C; }
+.box .space { height: 30px; }
+
+
+
+
+    #custom-search-form {
+        margin:0;
+        margin-top: 5px;
+        padding: 0;
+    }
+ 
+    #custom-search-form .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+ 
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        -webkit-transition: width  0.2s ease-in-out;
+    -moz-transition:width  0.2s ease-in-out;
+    -o-transition: width  0.2s ease-in-out;
+    transition: width  0.2s ease-in-out;
+    }
+ 
+    #custom-search-form button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+ 
+    .search-query:focus + button {
+        z-index: 3;   
+    }   
+    .search-query:focus{
+        width: 260px;
+    }   
+
+.body {
+	background-color: fff;
+	
+}
+
+/*  buttons in replies */
+
+.btn span.glyphicon {    			
+	opacity: 0;				
+}
+.btn.active span.glyphicon {				
+	opacity: 1;				
+}
+
+
+body { margin-top:20px; }
+.panel-body:not(.two-col) { padding:0px }
+.glyphicon { margin-right:5px; }
+.glyphicon-new-window { margin-left:5px; }
+.panel-body .radio,.panel-body .checkbox {margin-top: 0px;margin-bottom: 0px;}
+.panel-body .list-group {margin-bottom: 0;}
+.margin-bottom-none { margin-bottom: 0; }
+.panel-body .radio label,.panel-body .checkbox label { display:block; }
+
+

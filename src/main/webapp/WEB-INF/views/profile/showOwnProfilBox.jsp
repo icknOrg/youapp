@@ -125,8 +125,8 @@
 </script>
 
 	<!-- Status update (With profil picture) -->
-	<div class="container">
-	<div class="row ">
+	<div class="statusupdate">
+	<div class="row">
 		<div class="col-md-3">
 			<div class="profile-picture">
 				<div id="profile-picture">
@@ -161,7 +161,9 @@
 					 <textarea placeholder="${message}<spring:message code="statusupdate.showMyStream.create.howAreYou"/>" style="width:80%" rows="5" ></textarea>
 				</form>
 			
-				<button type="button" class="btn btn-primary" disabled="disabled"
+			
+          <br/>
+				<button type="button" class="btn btn-success" disabled="disabled"
 					id="send-status-update">
 					<spring:message code="statusupdate.showMyStream.create.button.send" />
 				</button>

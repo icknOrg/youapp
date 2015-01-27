@@ -33,9 +33,6 @@ right: 0px;
 background-color:  #e5e5e5;
 }
 
-/*.jumbotron i {
-	color: #db524b;
-*/
 
 /*!
  * With help from:
@@ -47,6 +44,8 @@ background-color:  #e5e5e5;
  *
  * http://docs.jquery.com/UI/Dialog#theming
  */
+ 
+ /* Styling dialog */
 .ui-dialog {
 	position: absolute;
 	width: 300px;
@@ -147,6 +146,11 @@ background-color:  #e5e5e5;
 	cursor: move;
 }
 
+/* Styling dropdown (City) */
+.ui-widget-content { background-color: #FFF; }
+.ui-widget-header { background-color: #fff; }
+
+
 /* Profile */
 
 /*	Statusupdate Hierarchie:
@@ -156,8 +160,6 @@ background-color:  #e5e5e5;
 *			.smilies
 */
 .statusupdate {
-	width: 100%;
-	height: 200px;
 	margin-bottom: 10px;
 }
 

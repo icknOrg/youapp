@@ -8,6 +8,7 @@ public class StatusUpdateDto {
 	private Integer moodId;
 	private String description;
 
+
 	/**
 	 * @return the personId
 	 */
@@ -67,6 +68,7 @@ public class StatusUpdateDto {
 	public void setDescription(String text) {
 		this.description = text;
 	}
+
 
 	@Override
 	public String toString() {

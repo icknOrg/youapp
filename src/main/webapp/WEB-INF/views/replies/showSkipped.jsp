@@ -2,6 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<jsp:useBean id="profileUtility" type="youapp.utility.ProfileUtility" scope="application"/>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/replyForm.js"></script>
+
 <script type="text/javascript">
     $(document).ready(
             function() {
@@ -57,16 +61,21 @@
 <h2 class="content-heading"><spring:message code="replies.showSkipped.headings.title"/></h2>
 <spring:message code="replies.showSkipped.headings.subtitle"/>
 <br><br>
-<div class="bluediv"> 
-<ul class="list-group">
-    <c:forEach items="${repliesList}" var="reply">
-        <li class="list-group-item" data-questionid="${reply.questionId}">
-			<h4 class="questiontitle">
+ <c:forEach items="${repliesList}" var="reply">
+      
+<div class="container">
+<div class="row">
+
+<div class="panel panel-success">
+ <div class="panel-heading">
+   
+       
+			<h4 class="panel-title">
             	<c:out value="${questionMap[reply.questionId].question}" escapeXml="false" />
-            </h4>
-            <button style="margin-bottom:10px" class="edit-question floatright"><spring:message code="replies.showSkipped.button.answer"/></button>
-            <button class="save-question floatright" style="display: none;"><spring:message code="replies.showSkipped.button.send"/></button>
+            </h4></div>
+           
             <ul>
+             
                 <c:if test="${not empty questionMap[reply.questionId].answerA}">
                     <li <c:if test="${reply.answerA}"> class="selected"</c:if>><c:out
                             value="${questionMap[reply.questionId].answerA}" /></li>
@@ -88,9 +97,13 @@
                     <li <c:if test="${reply.answerE}"> class="selected"</c:if>><c:out
                             value="${questionMap[reply.questionId].answerE}" /></li>
                 </c:if>
-			<br>
+                <br/>
+			<button class="btn btn-start btn-fullwidth" id="save-question"><spring:message code="replies.create.button.submit"/></button>
+            <button class="save-question floatright" style="display: none;"><spring:message code="replies.showSkipped.button.send"/></button>
             </ul>
         </li>
+       </div>
     </c:forEach>
-</ul>
-</div>
+
+
+

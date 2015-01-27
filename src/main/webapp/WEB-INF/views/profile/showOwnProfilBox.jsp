@@ -125,26 +125,29 @@
 </script>
 
 	<!-- Status update (With profil picture) -->
-	<div class="row statusupdate">
-		<div class="col-xs-2 col-sm-2">
+	<div class="container">
+	<div class="row ">
+		<div class="col-md-3">
 			<div class="profile-picture">
 				<div id="profile-picture">
 					<img class="img-thumbnail"
 						src="${ profileUtility.getProfilePictureUrl ( person.id)}">
 				</div>
+				<br/>
 				<button type="button" class="btn btn-primary" id="update-picture">
 					<spring:message code="profile.show.button.updatePicture" />
 				</button>
 			</div>
 		</div>
-		<div class="col-xs-8 col-sm-8">
+		<div class="col-md-9">
 			<div class="information-input">
 				<form id="create-status-update">
 					<div class="smilies" id="smileys-buttons">
 						<input type="radio" name="radio" id="radio1" value="5"><label
 							for="radio1"><img
 							src="${pageContext.request.contextPath}/img/great.gif"
-							class="emoticon"></label> <input type="radio" name="radio"
+							class="emoticon"></label> 
+							<input type="radio" name="radio"
 							id="radio2" value="0"><label for="radio2"><img
 							src="${pageContext.request.contextPath}/img/ok.gif"
 							class="emoticon"></label> <input type="radio" name="radio"
@@ -155,12 +158,14 @@
 
 					<spring:message code="statusupdate.showMyStream.create.message"
 						var="message" />
-					<textarea class="form-control" placeholder="${message}"></textarea>
+					 <textarea placeholder="${message}<spring:message code="statusupdate.showMyStream.create.howAreYou"/>" style="width:80%" rows="5" ></textarea>
 				</form>
+			
 				<button type="button" class="btn btn-primary" disabled="disabled"
 					id="send-status-update">
 					<spring:message code="statusupdate.showMyStream.create.button.send" />
 				</button>
 			</div>
 		</div>
+	</div>
 	</div>

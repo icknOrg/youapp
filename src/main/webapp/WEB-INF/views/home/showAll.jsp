@@ -57,10 +57,10 @@
 					</div>
 					<div class="info">
 						<h3 class="title">Connect</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien.
-						Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper.</p>
+						<p>The YouAPP is about creating a movement for improved health. Together, we 
+						can expand the conversation and enhance communication between patients and physicians, thereby creating community and knowledge. </p>
 						<div class="more">
-							<a title="Title Link" href="#">
+							<a title="Title Link" href="http://improvecarenowblog.org" target="_blank">
 								Read More
 								<i class="fa fa-angle-double-right"></i>
 							</a>
@@ -81,10 +81,10 @@
 					</div>
 					<div class="info">
 						<h3 class="title">Discuss</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien.
-						Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper.</p>
+						<p>See the latest posts, activities, events, and group discussions with you soulmates.Create and answer matchmaking questions.Get new insides 
+						the medications of your friends.</p>
 						<div class="more">
-							<a title="Title Link" href="#">
+							<a title="Title Link" href="http://improvecarenowblog.org" target="_blank">
 								Read More
 								<i class="fa fa-angle-double-right"></i>
 							</a>
@@ -105,10 +105,10 @@
 					</div>
 					<div class="info">
 						<h3 class="title">Meet People</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien.
-						Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper.</p>
+						<p>Bring IBD patients with similar interets through their Facebook Networks, by 
+						proposing them "people like themselves" based on their self-defined attributes and a game-like quiz with user-definable questions.</p>
 						<div class="more">
-							<a title="Title Link" href="#">
+							<a title="Title Link" href="http://improvecarenowblog.org" target="_blank">
 								Read More
 								<i class="fa fa-angle-double-right"></i>
 							</a>

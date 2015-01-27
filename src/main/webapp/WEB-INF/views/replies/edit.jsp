@@ -34,9 +34,10 @@ $(document).ready(
 		<form:hidden path="inPrivate" />
 		<form:hidden path="critical" />
 		<form:hidden path="lastUpdate" />
-		
-		
-<div class="container">
+	
+	
+	
+	<div class="container">
 	<div class="row">
 	
 	<div class="panel panel-success">
@@ -73,7 +74,7 @@ $(document).ready(
 		
 		
 
-		
+	
 		<div class="col-md-6">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
@@ -141,3 +142,22 @@ $(document).ready(
 	
 	
 </form:form>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		

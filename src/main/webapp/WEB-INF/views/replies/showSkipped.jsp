@@ -58,13 +58,13 @@
 <spring:message code="replies.showSkipped.headings.subtitle"/>
 <br><br>
 <div class="bluediv"> 
-<ul>
+<ul class="list-group">
     <c:forEach items="${repliesList}" var="reply">
-        <li class="question" data-questionid="${reply.questionId}">
+        <li class="list-group-item" data-questionid="${reply.questionId}">
 			<h4 class="questiontitle">
             	<c:out value="${questionMap[reply.questionId].question}" escapeXml="false" />
             </h4>
-            <button class="edit-question floatright"><spring:message code="replies.showSkipped.button.answer"/></button>
+            <button style="margin-bottom:10px" class="edit-question floatright"><spring:message code="replies.showSkipped.button.answer"/></button>
             <button class="save-question floatright" style="display: none;"><spring:message code="replies.showSkipped.button.send"/></button>
             <ul>
                 <c:if test="${not empty questionMap[reply.questionId].answerA}">

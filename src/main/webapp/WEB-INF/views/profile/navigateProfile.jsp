@@ -9,7 +9,6 @@
 
 
 
-
 <ul class="nav nav-tabs">
 
 <c:choose>
@@ -26,8 +25,18 @@
 		<li role="presentation" class="active"><a href="#">Questions</a></li>
  	</c:when>
  	<c:otherwise>
- 		<li role="presentation"><a href="<c:out value='${pageContext.request.contextPath}/questions/showAll.html'/>">Questions</a></li>
+ 		<li role="presentation"><a href="<c:out value='${pageContext.request.contextPath}/questions/create.html'/>">Questions</a></li>
  	</c:otherwise>
+ 	</c:choose>
+ 	
+ 	<c:choose>
+ 		<c:when test="${param.showSite =='Replies'}">
+ 			<li role="presentation" class="active"><a href="#">Replies</a></li>
+ 	</c:when>
+ 	<c:otherwise>
+ 		<li role="presentation"><a href="<c:out value='${pageContext.request.contextPath}/replies/create.html'/>">Replies</a>
+ 	</c:otherwise>
+ 	
  	</c:choose>
  		
 	<c:choose>

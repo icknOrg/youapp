@@ -23,20 +23,13 @@
 		<a class="navbar-brand"
 
 			href="<c:out value='${pageContext.request.contextPath}'/>"> <img
-			class="logo" style="max-height: 37px; width: auto;" src="${pageContext.request.contextPath}/img/logo.png" />
+			class="logo" style="max-height: 47px; width: auto;" src="${pageContext.request.contextPath}/img/logo.png" />
 
 
 		</a>
 
 		
-			<div class="input-group custom-search-form">
-				<input class="form-control" type="text" placeholder="Seach...">
-				<span class="input-group-btn">
-					<button class="btn btn-default" type="button">
-						<i class="fa fa-search"></i>	
-					</button>
-				</span>
-			</div>
+			
 	 	
 		
 		

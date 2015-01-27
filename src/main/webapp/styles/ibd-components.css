@@ -319,6 +319,7 @@ h1, h2, h3, h4 {
 	vertical-align: middle;
 }
 
+<<<<<<< Updated upstream
 .box>.icon:hover>.image {
 	background: #333;
 }
@@ -448,6 +449,22 @@ body {
 
 .panel-body
 :not
+=======
+/* Search bar */
+
+    #custom-search-form {
+        margin:0;
+        margin-top: 5px;
+        padding: 30;
+    }
+ 
+    #custom-search-form .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+>>>>>>> Stashed changes
  
 (
 .two-col
@@ -457,6 +474,7 @@ body {
 padding
 :
  
+<<<<<<< Updated upstream
 0
 px
 
@@ -486,3 +504,45 @@ px
 .panel-body .radio label, .panel-body .checkbox label {
 	display: block;
 }
+=======
+    .search-query:focus + button {
+        z-index: 3;   
+    }   
+    .search-query:focus{
+        width: 260px;
+    }   
+
+.body {
+	background-color: fff;
+	
+}
+
+/* Buttons in replies */
+
+.btn span.glyphicon {    			
+	opacity: 0;				
+}
+.btn.active span.glyphicon {				
+	opacity: 1;				
+}
+
+
+body { margin-top:20px; }
+.panel-body:not(.two-col) { padding:0px }
+.glyphicon { margin-right:5px; }
+.glyphicon-new-window { margin-left:5px; }
+.panel-body .radio,.panel-body .checkbox {margin-top: 0px;margin-bottom: 0px;}
+.panel-body .list-group {margin-bottom: 0;}
+.margin-bottom-none { margin-bottom: 0; }
+.panel-body .radio label,.panel-body .checkbox label { display:block; }
+
+
+/* textarea in statusupdate */
+
+textarea{
+	cols:30px;
+	rows:5px;
+	
+}
+
+>>>>>>> Stashed changes

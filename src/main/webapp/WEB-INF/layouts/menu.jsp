@@ -4,8 +4,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 
+
+
+			
 <ul class="nav navbar-top-links navbar-right">
 	<!-- Show Messages -->
+	
+
 	<li class="dropdown"><a class="dropdown-toggle"
 		data-toggle="dropdown"
 		href="<c:out value='${pageContext.request.contextPath}/messaging/showMyConversations.html'/>">
@@ -92,3 +97,13 @@
 	<li><a href="<c:out value='${pageContext.request.contextPath}/logout/bye.html'/>"><span class="glyphicon glyphicon-log-out"></span></a></li>
 
 </ul>
+
+
+<form class="navbar-form navbar-right" role="search">
+<div class="form-group">
+
+<input type="text" class="form-control" placeholder="Search" >
+			</div>
+			<button type="submit" class="btn btn-default">Search</button>
+			
+			</form>

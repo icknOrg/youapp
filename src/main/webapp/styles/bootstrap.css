@@ -177,7 +177,8 @@ legend {
 }
 
 textarea {
-	overflow: auto
+	overflow: auto;
+	
 }
 
 optgroup {

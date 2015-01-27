@@ -9,30 +9,35 @@
 <div class="bluediv">     
           <h4 class="questiontitle"><c:out value="${question.question}"/></h4>
 
-            <ul>
+            <ul class="list-group">
 				<c:if test="${not empty question.answerA}">
-				    <li>
+				    <li class="list-group-item">
 				        <c:out value="${question.answerA}" />
                     </li>
                 </c:if>
 			
                 <c:if test="${not empty question.answerB}">
-                    <li>
+                    <li class="list-group-item">
                         <c:out value="${question.answerB}" />
                     </li>
                 </c:if>
 			
                 <c:if test="${not empty question.answerC}">
-                    <li>
+                    <li class="list-group-item">
                         <c:out value="${question.answerC}" />
                     </li>
                 </c:if>
                 
                 <c:if test="${not empty question.answerD}">
-                    <li>
+                    <li class="list-group-item">
                         <c:out value="${question.answerD}" />
                     </li>
                 </c:if>
             </ul>
 </div>  
     </c:forEach>
+    
+    
+    
+    
+  

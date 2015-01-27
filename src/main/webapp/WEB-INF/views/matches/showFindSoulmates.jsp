@@ -134,31 +134,7 @@
 															});
 										});
 
-						$('#search-person')
-								.autoSuggest(
-										baseUrl
-												+ '/autocomplete/searchPeople.html',
-										{
-											queryParam : 'name',
-											selectedItemProp : 'name',
-											selectedValuesProp : 'id',
-											searchObjProps : 'name',
-											minChars : 2,
-											startText : 'Search Person',
-											emptyText : messages['messaging.sendMessage.conversationParticipantsAutocomplete.emptyText'],
-											asHtmlID : 'conversationparticipants',
-											formatList : function(data, elem) {
-												return elem
-														.html('<img src="' + data.thumbnailUrl + '" />'
-																+ data.name);
-											},
-											selectionLimit : 1,
-											resultClick : function(data) {
-												window.location.href = baseUrl
-														+ '/profile/show.html?personId='
-														+ data.attributes.id;
-											}
-										});
+
 
 					});
 </script>

@@ -100,10 +100,9 @@
 
 
 <form class="navbar-form navbar-right" role="search">
-<div class="form-group">
+<div class="form-group search-bar" style="position: absolute; right: 200px; background-color:  #f7f7f7;">
 
-<input type="text" class="form-control" placeholder="Search" >
+<input type="text" class="form-control" placeholder="Search" name="searchPersonBar" id="searchPersonBar">
 			</div>
-			<button type="submit" class="btn btn-default">Search</button>
 			
 			</form>

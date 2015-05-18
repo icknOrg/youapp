@@ -1,10 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<jsp:useBean id="profileUtility" type="youapp.utility.ProfileUtility" scope="application"/>
+<jsp:useBean id="profileUtility" type="youapp.utility.ProfileUtility"
+	scope="application" />
 
 <script type="text/javascript">
 $(document).ready(
@@ -100,79 +102,68 @@ $(document).ready(
 
 <!-- Main Content Central 940px + border-->
 <div class="row">
-<div class="col-md-3">
-  <div class="side-rail left-rail">
-    
-    <div id="profile-picture">
-					<img class="img-thumbnail"
-						src="${ profileUtility.getProfilePictureUrl (myProfile.id)}">
-    </div>
-    <a href="<c:out value='${pageContext.request.contextPath}/messaging/showMyConversations.html'/>"><i class="icon-envelope"></i> Messages <span class="badge badge-info">4</span></a>
-    <br/>
-  </div>
-  <br/>
+	<div class="col-md-3">
+		<div class="side-rail left-rail">
+
+			<div id="profile-picture">
+				<img class="img-thumbnail"
+					src="${ profileUtility.getProfilePictureUrl (myProfile.id)}">
+			</div>
+			<br />
+		</div>
+		<br />
+	</div>
+
+	<div class="col-md-9">
+
+		<form id="create-status-update">
+			<div id="smileys-buttons">
+				<input type="radio" name="radio" id="radio1" value="5"><label
+					for="radio1"><img
+					src="${pageContext.request.contextPath}/img/great.gif"
+					class="emoticon"></label> <input type="radio" name="radio"
+					id="radio2" value="0"><label for="radio2"><img
+					src="${pageContext.request.contextPath}/img/ok.gif"
+					class="emoticon"></label> <input type="radio" name="radio"
+					id="radio3" value="-5"><label for="radio3"><img
+					src="${pageContext.request.contextPath}/img/sad.gif"
+					style="padding-right: 15px;" class="emoticon"></label>
+			</div>
+			<textarea
+				placeholder="${myProfile.firstName}<spring:message code="statusupdate.showMyStream.create.howAreYou"/>"
+				rows="2" class="form-control"></textarea>
+		</form>
+
+		<br />
+		<button disabled="disabled" id="send-status-update"
+			class="btn btn-success">
+			<spring:message code="statusupdate.showMyStream.create.button.send" />
+		</button>
+	</div>
 </div>
 
-<!-- Right Box -->
-  
-  <!-- Right Box -->
-  <div class="col-md-9">
-  <!-- old code -->
-  
- <!--  	<h2 style="border-bottom: 0px dotted #CCC;" class="content-heading">${myProfile.firstName}<spring:message code="statusupdate.showMyStream.create.howAreYou"/></h2>
-		 <form id="create-status-update">
-            <div id="smileys-buttons">
-		        <input type="radio" name="radio" id="radio1" value="5"><label for="radio1"><img src="${pageContext.request.contextPath}/img/great.gif" class="emoticon"></label>
-		        <input type="radio" name="radio" id="radio2" value="0"><label for="radio2"><img src="${pageContext.request.contextPath}/img/ok.gif" class="emoticon"></label>
-		        <input type="radio" name="radio" id="radio3" value="-5"><label for="radio3"><img src="${pageContext.request.contextPath}/img/sad.gif" style="padding-right:15px;" class="emoticon"></label>
-    	    </div>
-            
-             <spring:message code="statusupdate.showMyStream.create.message" var="message"/>   
-             
-             
-            <textarea placeholder="${message}"></textarea>
-          </form>  -->
-          
-<!--  new code -->
-
-		 <form id="create-status-update">
-            <div id="smileys-buttons">
-		        <input type="radio" name="radio" id="radio1" value="5"><label for="radio1"><img src="${pageContext.request.contextPath}/img/great.gif" class="emoticon"></label>
-		        <input type="radio" name="radio" id="radio2" value="0"><label for="radio2"><img src="${pageContext.request.contextPath}/img/ok.gif" class="emoticon"></label>
-		        <input type="radio" name="radio" id="radio3" value="-5"><label for="radio3"><img src="${pageContext.request.contextPath}/img/sad.gif" style="padding-right:15px;" class="emoticon"></label>
-    	    </div> 
-            <textarea placeholder="${myProfile.firstName}<spring:message code="statusupdate.showMyStream.create.howAreYou"/>" style="width:80%" rows="5" ></textarea>
-          </form>
-
-          <br/>
-		  <button disabled="disabled" id="send-status-update" class="btn btn-success"><spring:message code="statusupdate.showMyStream.create.button.send"/></button>
-		  </div>
-		  </div>
-		 
-		  <!-- Conversation Box -->
-		<!--   <jsp:include page="../widgets/showLastConversations.jsp"/>--> 
-		<c:choose> 
-			<c:when test="${not empty statusUpdates}">   
-			
-		
-				<div id="status-updates" class="clear" data-firststatusupdate="${statusUpdates[0].when}" data-offset="${statusupdatesOffset}" data-resultsize="${statusupdatesResultSize}">
-		            <jsp:include page="showStatusUpdatesList.jsp"/>
-				</div>
-				
-				<span id="no-more-status-updates" style="display: none;">
-				   <spring:message code="statusupdate.showMyStream.loadMoreStatusUpdates.noMoreAvailable"/>
-				</span>
-				<button id="show-more-status-updates" class="btn btn-success">
-				   <spring:message code="statusupdate.showMyStream.loadMoreStatusUpdates.showMore"/>
-				</button>
-			</c:when>
-			<c:otherwise>
-			    <div id="status-updates">
-			    </div>
-				<span id="no-status-updates">
-				  <spring:message code="statusupdate.showMyStream.noStatusUpdatesAvailable"/>
-				</span>
-			</c:otherwise>
-		</c:choose>
- 
- <!-- /center-content -->
+<!-- Conversation Box -->
+<!--   <jsp:include page="../widgets/showLastConversations.jsp"/>-->
+<c:choose>
+	<c:when test="${not empty statusUpdates}">
+		<div id="status-updates" class="clear"
+			data-firststatusupdate="${statusUpdates[0].when}"
+			data-offset="${statusupdatesOffset}"
+			data-resultsize="${statusupdatesResultSize}">
+			<jsp:include page="showStatusUpdatesList.jsp" />
+		</div>
+		<span id="no-more-status-updates" style="display: none;"> <spring:message
+				code="statusupdate.showMyStream.loadMoreStatusUpdates.noMoreAvailable" />
+		</span>
+		<button id="show-more-status-updates" class="btn btn-success">
+			<spring:message
+				code="statusupdate.showMyStream.loadMoreStatusUpdates.showMore" />
+		</button>
+	</c:when>
+	<c:otherwise>
+		<div id="status-updates"></div>
+		<span id="no-status-updates"> <spring:message
+				code="statusupdate.showMyStream.noStatusUpdatesAvailable" />
+		</span>
+	</c:otherwise>
+</c:choose>

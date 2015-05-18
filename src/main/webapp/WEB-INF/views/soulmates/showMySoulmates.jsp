@@ -127,8 +127,6 @@
 <spring:message code="soulmates.showMySoulmates.addSoulmates"
 	arguments="${pageContext.request.contextPath}/matches/showFindSoulmates.html" />
 
-
-
 <c:if test="${not empty requestedPeopleList}">
 	<div id="people-requested">
 		<h2 class="content-heading">
@@ -248,8 +246,10 @@
 		</div>
 	</c:when>
 	<c:otherwise>
-		<spring:message code="soulmates.showMySoulmates.noSoulmatesAvailable"
+		<p>
+			<spring:message code="soulmates.showMySoulmates.noSoulmatesAvailable"
 			arguments="${pageContext.request.contextPath}/matches/showFindSoulmates.html" />
+		</p>
 	</c:otherwise>
 </c:choose>
 

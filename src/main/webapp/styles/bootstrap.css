@@ -4213,9 +4213,14 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 .navbar-brand {
 	float: left;
 	height: 50px;
-	padding: 15px 15px;
+	padding: 20px 0px 20px 30px;
 	font-size: 18px;
 	line-height: 20px
+}
+
+.navbar-menu {
+	padding: 20px 0px;
+	height: 90px;
 }
 
 .navbar-brand:hover, .navbar-brand:focus {
@@ -5495,7 +5500,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover,
 }
 
 .panel-body {
-	padding: 15px
+	/*padding: 15px*/
 }
 
 .panel-heading {

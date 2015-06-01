@@ -22,16 +22,18 @@ $(document).ready(
                 	moodRating = '';
                 
                 $.post(baseUrl + '/statusupdate/createStatusUpdate.html', {description: description , moodRating: moodRating}, function(data) {
-                    if ($.trim(data) !== "") {
+                    /* if ($.trim(data) !== "") {
                         $(data).hide().prependTo('#status-updates').slideDown(1000);                    	  
-                    }
+                    } */
+                    
+                    location.reload();
                     
                     // Reset the form
                     $('form#create-status-update')[0].reset();
                     $('button#send-status-update').attr('disabled', 'disabled');
                 }).complete(function() {
                     button.removeClass('loading-animation');
-                });;
+                });
             });
             
             // de-and activate send button by form content 
@@ -74,7 +76,7 @@ $(document).ready(
         	  });
            });
            
-           $('.status-update .delete-status-update').live('click', (function() {
+           $('.status-update .delete-status-update').on('click', (function() {
         	   var button = $(this);
                
                var buttons = {};
@@ -104,10 +106,8 @@ $(document).ready(
 <div class="row">
 	<div class="col-md-3">
 		<div class="side-rail left-rail">
-
 			<div id="profile-picture">
-				<img class="img-thumbnail"
-					src="${ profileUtility.getProfilePictureUrl (myProfile.id)}">
+				<img class="img-thumbnail" src="${ profileUtility.getProfilePictureUrl (myProfile.id)}">
 			</div>
 			<br />
 		</div>
@@ -115,7 +115,6 @@ $(document).ready(
 	</div>
 
 	<div class="col-md-9">
-
 		<form id="create-status-update">
 			<div id="smileys-buttons">
 				<input type="radio" name="radio" id="radio1" value="5"><label
@@ -133,7 +132,6 @@ $(document).ready(
 				placeholder="${myProfile.firstName}<spring:message code="statusupdate.showMyStream.create.howAreYou"/>"
 				rows="2" class="form-control"></textarea>
 		</form>
-
 		<br />
 		<button disabled="disabled" id="send-status-update"
 			class="btn btn-success">
@@ -144,6 +142,9 @@ $(document).ready(
 
 <!-- Conversation Box -->
 <!--   <jsp:include page="../widgets/showLastConversations.jsp"/>-->
+<div class="panel-heading">
+	<i class="fa fa-clock-o fa-fw"></i> Timeline
+</div>
 <c:choose>
 	<c:when test="${not empty statusUpdates}">
 		<div id="status-updates" class="clear"

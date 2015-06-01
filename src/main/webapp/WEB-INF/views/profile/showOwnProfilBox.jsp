@@ -158,7 +158,7 @@
 
 					<spring:message code="statusupdate.showMyStream.create.message"
 						var="message" />
-					 <textarea placeholder="${message}<spring:message code="statusupdate.showMyStream.create.howAreYou"/>" style="width:80%" rows="5" ></textarea>
+					 <textarea placeholder="${message}<spring:message code="statusupdate.showMyStream.create.howAreYou"/>" rows="2" class="form-control"></textarea>
 				</form>
 			
 			

@@ -182,9 +182,9 @@
 
 <c:choose>
 	<c:when test="${not empty soulmatesList}">
-		<h2 class="content-heading">
+		<!-- <h2 class="content-heading">
 			<spring:message code="soulmates.showMySoulmates.title.soulmates" />
-		</h2>
+		</h2> -->
 		<div id="soulmates">
 
 			<div class="chat row">
@@ -246,10 +246,11 @@
 		</div>
 	</c:when>
 	<c:otherwise>
-		<p>
+	<!-- 	<p>
 			<spring:message code="soulmates.showMySoulmates.noSoulmatesAvailable"
 			arguments="${pageContext.request.contextPath}/matches/showFindSoulmates.html" />
 		</p>
+		 -->
 	</c:otherwise>
 </c:choose>
 

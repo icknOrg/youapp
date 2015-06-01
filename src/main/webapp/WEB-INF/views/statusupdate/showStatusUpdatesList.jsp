@@ -12,7 +12,7 @@
 <div class="panel panel-default"></div>
 
 <div class="panel-heading">
-	<i class="fa fa-clock-o fa-fw"></i> Timeline
+	<!-- 	<i class="fa fa-clock-o fa-fw"></i> Timeline -->
 </div>
 
 <c:forEach items="${statusUpdates}" var="statusUpdate" varStatus="loop">
@@ -25,10 +25,27 @@
 							style="width:63px; height:63px; overflow: hidden; border-radius:100px; background-image: url(${profileUtility.getProfilePictureUrl(statusUpdate.person.id)}); background-position: center; background-size: cover;"></div>
 						<div class="timeline-panel">
 							<div class="timeline-heading">
-								<h4 class="timeline-title">
-									<c:out value="${statusUpdate.person.firstName} " />
-									says
-								</h4>
+								<div class="row">
+									<div class="col-md-9">
+										<h4 class="timeline-title">
+											<c:out value="${statusUpdate.person.firstName} " />
+											says
+										</h4>
+									</div>
+									<div class="col-md-3 text-right">
+										<c:choose>
+											<c:when test="${statusUpdate.mood.getId() == 16}">
+												<img src="${pageContext.request.contextPath}/img/great.gif" class="emoticon">
+											</c:when>
+											<c:when test="${statusUpdate.mood.getId() == 15}">
+												<img src="${pageContext.request.contextPath}/img/ok.gif" class="emoticon">
+											</c:when>
+											<c:when test="${statusUpdate.mood.getId() == 17}">
+												<img src="${pageContext.request.contextPath}/img/sad.gif" class="emoticon">
+											</c:when>
+										</c:choose>
+									</div>
+								</div>
 							</div>
 		
 							<div class="timeline-body">
@@ -59,10 +76,27 @@
 							style="width:63px; height:63px; overflow: hidden; border-radius:100px; background-image: url(${profileUtility.getProfilePictureUrl(statusUpdate.person.id)}); background-position: center; background-size: cover;"></div>
 						<div class="timeline-panel">
 							<div class="timeline-heading">
-								<h4 class="timeline-title">
-									<c:out value="${statusUpdate.person.firstName} " />
-									says
-								</h4>
+								<div class="row">
+									<div class="col-md-9">
+										<h4 class="timeline-title">
+											<c:out value="${statusUpdate.person.firstName} " />
+											says
+										</h4>
+									</div>
+									<div class="col-md-3 text-right">
+										<c:choose>
+											<c:when test="${statusUpdate.mood.getId() == 16}">
+												<img src="${pageContext.request.contextPath}/img/great.gif" class="emoticon">
+											</c:when>
+											<c:when test="${statusUpdate.mood.getId() == 15}">
+												<img src="${pageContext.request.contextPath}/img/ok.gif" class="emoticon">
+											</c:when>
+											<c:when test="${statusUpdate.mood.getId() == 17}">
+												<img src="${pageContext.request.contextPath}/img/sad.gif" class="emoticon">
+											</c:when>
+										</c:choose>
+									</div>
+								</div>
 							</div>
 							<div class="timeline-body">
 								<p>

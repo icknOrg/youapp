@@ -143,7 +143,7 @@ $(document).ready(
 <!-- Conversation Box -->
 <!--   <jsp:include page="../widgets/showLastConversations.jsp"/>-->
 <div class="panel-heading">
-	<i class="fa fa-clock-o fa-fw"></i> Timeline
+	<!-- <i class="fa fa-clock-o fa-fw"></i> Timeline  -->
 </div>
 <c:choose>
 	<c:when test="${not empty statusUpdates}">

@@ -11,8 +11,9 @@
 
 <div class="panel panel-default"></div>
 
-<div class="panel-heading">
-	<!-- 	<i class="fa fa-clock-o fa-fw"></i> Timeline -->
+<!-- <div class="panel-heading"> -->
+<div class="panel">
+	<i class="fa fa-clock-o fa-fw"></i>Timeline 
 </div>
 
 <c:forEach items="${statusUpdates}" var="statusUpdate" varStatus="loop">

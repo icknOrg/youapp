@@ -190,8 +190,8 @@
 			<div class="chat row">
 				<c:forEach items="${soulmatesList}" var="soulmate">
 
-					<div class="col-xs-12 col-sm-4 left clearfix">
-						<span class="chat-img pull-left"> <img
+					<div class="col-xs-12 col-sm-4 left clearfix" style="padding-top: 10px">
+						<span class="chat-img pull-left" style="margin-right:10px"> <img
 							src="${profileUtility.getProfileThumbnailUrl(soulmate.id)}"
 							alt="User Avatar" class="img-circle" />
 						</span>

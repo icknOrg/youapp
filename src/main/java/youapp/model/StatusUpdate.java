@@ -1,9 +1,15 @@
 package youapp.model;
 
+import java.io.File;
 import java.sql.Timestamp;
+
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 public class StatusUpdate
 {
+	private int id;
+	
     private Person person;
 
     private Timestamp when;
@@ -11,6 +17,14 @@ public class StatusUpdate
     private Mood mood;
 
     private String description;
+    
+    /**
+     * @return the id
+     */
+    public int getId()
+    {
+        return this.id;
+    }
 
     /**
      * @return the person
@@ -34,6 +48,14 @@ public class StatusUpdate
     public Timestamp getWhen()
     {
         return when;
+    }
+    
+    /**
+     * @param when the when to set
+     */
+    public void setId(int id)
+    {
+        this.id = id;
     }
 
     /**
@@ -74,6 +96,54 @@ public class StatusUpdate
     public void setDescription(String description)
     {
         this.description = description;
+    }
+    
+    public boolean hasImage()
+    {
+    	ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+    	String pathToImagesDir = requestAttributes.getRequest().getRealPath("/images");
+    	
+    	String pathWithoutExtension = pathToImagesDir + "/" + this.getPerson().getId() + "/" + this.getId() + ".";
+    	
+    	String[] extensions = { "png", "jpg", "jpeg", "gif" };
+    	
+    	boolean match = false;
+    	
+    	for (String extension : extensions)
+    	{
+    		File f = new File(pathWithoutExtension + extension);
+    		if (f.exists() && !f.isDirectory()) 
+    			match = true;
+    	}
+    	
+    	return match;
+    }
+    
+    public String getImageURL()
+    {
+    	ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+    	String pathToImagesDir = requestAttributes.getRequest().getRealPath("/images");
+    	
+    	String pathWithoutExtension = pathToImagesDir + "/" + this.getPerson().getId() + "/" + this.getId() + ".";
+    	
+    	String[] extensions = { "png", "jpg", "jpeg", "gif" };
+    	
+    	boolean match = false;
+    	String url = "";
+    	
+    	for (String extension : extensions)
+    	{
+    		File f = new File(pathWithoutExtension + extension);
+    		if (f.exists() && !f.isDirectory()) { 
+    			match = true;
+    			url = "/images/" + this.getPerson().getId() + "/" + this.getId() + "." + extension;
+    		}
+    	}
+    	
+    	if (match)
+    		return url;
+    	else
+    		return "false";
     }
 
     @Override

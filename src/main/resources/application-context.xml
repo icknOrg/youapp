@@ -64,7 +64,8 @@
 		<property name="defaultMaxConnectionsPerHost" value="${solr.defaultMaxConnectionsPerHost}" />
 		<property name="maxTotalConnections" value="${solr.maxTotalConnections}" />
 	</bean>
-
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
 
 	<!-- <context:property-placeholder location="/WEB-INF/spring/datasource.properties"/> -->
 

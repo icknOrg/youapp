@@ -1,11 +1,17 @@
 package youapp.frontend.controllers;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -14,8 +20,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import youapp.dataaccess.dao.jdbc.JdbcStatusUpdateDao;
 import youapp.exception.GenericException;
 import youapp.frontend.interceptors.InterceptorUtils;
 import youapp.model.Mood;
@@ -35,11 +45,13 @@ public class StatusUpdateController
     private static final Log log = LogFactory.getLog(StatusUpdateController.class);
 
     private StatusUpdateService statusUpdateService;
+    private JdbcStatusUpdateDao dao;
 
     @Autowired
-    public void setStatusUpdateService(StatusUpdateService statusUpdateService)
+    public void setStatusUpdateService(StatusUpdateService statusUpdateService, JdbcStatusUpdateDao dao)
     {
         this.statusUpdateService = statusUpdateService;
+        this.dao = dao;
     }
 
     private PersonService personService;
@@ -298,4 +310,53 @@ public class StatusUpdateController
 
         return new ModelAndView("empty");
     }
+    
+    // Upload an image, which will be added to the timeline
+    @RequestMapping(value = "statusupdate/upload", method = RequestMethod.POST)
+    public ModelAndView uploadImage(@RequestParam MultipartFile file, HttpSession session) throws Exception
+    {
+    	if (file.isEmpty()) {
+    		if (log.isDebugEnabled())
+            {
+                log.debug("Empty file supplied.");
+            }
+            throw new GenericException("Empty file supplied.");
+    	}
+    	
+    	String type = file.getContentType();
+    	String extension = FilenameUtils.getExtension(file.getOriginalFilename());
+    	
+    	if (!(type.equals("image/png") || type.equals("image/jpg") || type.equals("image/jpeg") || type.equals("image/gif")))
+        {
+            if (log.isDebugEnabled())
+            {
+                log.debug("Invalid File type.");
+            }
+            throw new GenericException("Invalid File type, not an image.");
+        }
+    	
+    	// Create /images folder
+    	ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+    	String pathToImagesDir = requestAttributes.getRequest().getRealPath("/images");
+    	if (log.isDebugEnabled())
+        {
+            log.debug(pathToImagesDir);
+        }
+    	File imagesFolder = new File(pathToImagesDir);
+    	if (!imagesFolder.isDirectory())
+    		imagesFolder.mkdirs();
+    	
+    	// Add image to /images/:personId/:nextStatusUpdateId.extension
+	    BufferedImage src = ImageIO.read(new ByteArrayInputStream(file.getBytes()));
+	    Long personId = (Long) session.getAttribute("personId");
+	    File personFolder = new File(pathToImagesDir + "/" + personId);
+	    if (!personFolder.isDirectory())
+	    	personFolder.mkdirs();
+	    int nextId = dao.getNextId() + 1;
+	    File destination = new File(pathToImagesDir + "/" + personId + "/" + (nextId) + "." + extension);
+	    ImageIO.write(src, "png", destination);
+	    
+    	return new ModelAndView("empty");
+    }
+    
 }

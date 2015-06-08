@@ -81,8 +81,13 @@ public class StandardStatusUpdateService
         {
             mood = moodService.getById(statusUpdateDto.getMoodId());
         }
+        int id = 0;
+        if (statusUpdateDto.getId() != 0)
+        {
+        	id = statusUpdateDto.getId();
+        }
 
-        return reassembleStatusUpdate(statusUpdateDto, person, mood);
+        return reassembleStatusUpdate(statusUpdateDto, person, mood, id);
     }
 
     @Override
@@ -109,8 +114,13 @@ public class StandardStatusUpdateService
             {
                 mood = moodService.getById(statusUpdateDto.getMoodId());
             }
+            int id = 0;
+            if (statusUpdateDto.getId() != 0)
+            {
+            	id = statusUpdateDto.getId();
+            }
 
-            statusUpdates.add(reassembleStatusUpdate(statusUpdateDto, person, mood));
+            statusUpdates.add(reassembleStatusUpdate(statusUpdateDto, person, mood, id));
         }
 
         return statusUpdates;
@@ -140,8 +150,13 @@ public class StandardStatusUpdateService
         {
             mood = moodService.getById(statusUpdateDto.getMoodId());
         }
+        int id = 0;
+        if (statusUpdateDto.getId() != 0)
+        {
+        	id = statusUpdateDto.getId();
+        }
 
-        return reassembleStatusUpdate(statusUpdateDto, person, mood);
+        return reassembleStatusUpdate(statusUpdateDto, person, mood, id);
     }
 
     @Override
@@ -167,8 +182,13 @@ public class StandardStatusUpdateService
             {
                 mood = moodService.getById(statusUpdateDto.getMoodId());
             }
+            int id = 0;
+            if (statusUpdateDto.getId() != 0)
+            {
+            	id = statusUpdateDto.getId();
+            }
 
-            statusUpdates.add(reassembleStatusUpdate(statusUpdateDto, person, mood));
+            statusUpdates.add(reassembleStatusUpdate(statusUpdateDto, person, mood, id));
         }
 
         return statusUpdates;
@@ -199,8 +219,13 @@ public class StandardStatusUpdateService
             {
                 mood = moodService.getById(statusUpdateDto.getMoodId());
             }
+            int id = 0;
+            if (statusUpdateDto.getId() != 0)
+            {
+            	id = statusUpdateDto.getId();
+            }
 
-            statusUpdates.add(reassembleStatusUpdate(statusUpdateDto, person, mood));
+            statusUpdates.add(reassembleStatusUpdate(statusUpdateDto, person, mood, id));
         }
 
         return statusUpdates;
@@ -231,8 +256,13 @@ public class StandardStatusUpdateService
             {
                 mood = moodService.getById(statusUpdateDto.getMoodId());
             }
+            int id = 0;
+            if (statusUpdateDto.getId() != 0)
+            {
+            	id = statusUpdateDto.getId();
+            }
 
-            statusUpdates.add(reassembleStatusUpdate(statusUpdateDto, person, mood));
+            statusUpdates.add(reassembleStatusUpdate(statusUpdateDto, person, mood, id));
         }
 
         return statusUpdates;
@@ -379,7 +409,7 @@ public class StandardStatusUpdateService
         statusUpdateDao.deleteAll(personId);
     }
 
-    private StatusUpdate reassembleStatusUpdate(StatusUpdateDto statusUpdateDto, Person person, Mood mood)
+    private StatusUpdate reassembleStatusUpdate(StatusUpdateDto statusUpdateDto, Person person, Mood mood, int id)
         throws InconsistentStateException
     {
         // Check parameter null pointers.
@@ -402,6 +432,11 @@ public class StandardStatusUpdateService
         }
 
         StatusUpdate statusUpdate = new StatusUpdate();
+        statusUpdate.setId(id);
+        if (log.isDebugEnabled())
+        {
+            log.debug(">>> Id: " + id);
+        }
         statusUpdate.setPerson(person);
         if (log.isDebugEnabled())
         {

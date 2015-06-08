@@ -3,17 +3,32 @@ package youapp.dataaccess.dto;
 import java.sql.Timestamp;
 
 public class StatusUpdateDto {
+	private int id;
 	private Long personId;
 	private Timestamp when;
 	private Integer moodId;
 	private String description;
-
+	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
 
 	/**
 	 * @return the personId
 	 */
 	public Long getPersonId() {
 		return personId;
+	}
+	
+	/**
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	/**

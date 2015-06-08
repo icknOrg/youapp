@@ -17,8 +17,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import youapp.dataaccess.dao.IStatusUpdateDao;
 import youapp.dataaccess.dto.StatusUpdateDto;
 
-public class JdbcStatusUpdateDao
-    implements IStatusUpdateDao
+public class JdbcStatusUpdateDao implements IStatusUpdateDao
 {
 
     /**
@@ -233,6 +232,13 @@ public class JdbcStatusUpdateDao
 
         this.jdbcTemplate.update("delete from statusupdate where id_person = ?", personId);
     }
+    
+    public int getNextId()
+    {
+    	String sql = "SELECT MAX(id) FROM statusupdate";
+    	int count = this.jdbcTemplate.queryForInt(sql);
+        return count;
+    }
 
     /**
      * Maps a database row to a picture data transfer object.
@@ -240,13 +246,16 @@ public class JdbcStatusUpdateDao
      * @author neme
      * 
      */
-    private static final class StatusUpdateMapper
-        implements RowMapper<StatusUpdateDto>
+    private static final class StatusUpdateMapper implements RowMapper<StatusUpdateDto>
     {
-
         public StatusUpdateDto mapRow(ResultSet rs, int rowNum) throws SQLException
         {
             StatusUpdateDto statusUpdate = new StatusUpdateDto();
+            statusUpdate.setId(rs.getInt("id"));
+            if (rs.wasNull())
+            {
+                statusUpdate.setId(0);
+            }
             statusUpdate.setPersonId(rs.getLong("id_person"));
             if (rs.wasNull())
             {

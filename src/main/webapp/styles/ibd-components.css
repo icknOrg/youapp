@@ -292,7 +292,7 @@ background-color:  #e5e5e5;
 }
 
 .message-me i{
-	font-weight: bold;
+	color: #a9a9a9;
 }
 
 
@@ -448,39 +448,20 @@ background-color:  #e5e5e5;
 	opacity: 1;
 }
 
-.panel-body
-:not
-=======
-/* Search bar */
-
     #custom-search-form {
         margin:0;
         margin-top: 5px;
         padding: 30;
     }
  
-    #custom-search-form .search-query {
+#custom-search-form .search-query {
         padding-right: 3px;
         padding-right: 4px \9;
         padding-left: 3px;
         padding-left: 4px \9;
         /* IE7-8 doesn't have border-radius, so don't indent the padding */
->>>>>>> Stashed changes
- 
-(
-.two-col
- 
-)
-{
-padding
-:
- 
-<<<<<<< Updated upstream
-0
-px
-
-
 }
+
 .glyphicon {
 	margin-right: 5px;
 }
@@ -505,7 +486,7 @@ px
 .panel-body .radio label, .panel-body .checkbox label {
 	display: block;
 }
-=======
+
     .search-query:focus + button {
         z-index: 3;   
     }   
@@ -527,8 +508,6 @@ px
 	opacity: 1;				
 }
 
-
-body { margin-top:20px; }
 .panel-body:not(.two-col) { padding:0px }
 .glyphicon { margin-right:5px; }
 .glyphicon-new-window { margin-left:5px; }
@@ -538,12 +517,22 @@ body { margin-top:20px; }
 .panel-body .radio label,.panel-body .checkbox label { display:block; }
 
 
-/* textarea in statusupdate */
-
-textarea{
-	cols:30px;
-	rows:5px;
-	
+.btn-file {
+    position: relative;
+    overflow: hidden;
 }
-
->>>>>>> Stashed changes
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}

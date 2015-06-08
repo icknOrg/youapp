@@ -53,6 +53,9 @@
 								<p>
 									<c:out value="${statusUpdate.description}" />
 								</p>
+								<c:if test="${statusUpdate.hasImage()}">
+									<img style="width:100%" src="${pageContext.request.contextPath}${statusUpdate.getImageURL()}">
+								</c:if>
 								<p>
 									<small class="text-muted"> <i class="fa fa-clock-o"></i>
 										<span class="when" title="${statusUpdate.when}"><c:out
@@ -103,6 +106,9 @@
 								<p>
 									<c:out value="${statusUpdate.description}" />
 								</p>
+								<c:if test="${statusUpdate.hasImage()}">
+									<img style="width:100%" src="${pageContext.request.contextPath}${statusUpdate.getImageURL()}">
+								</c:if>
 								<p>
 									<small class="text-muted"> <i class="fa fa-clock-o"></i>
 										<span class="when" title="${statusUpdate.when}"><c:out

@@ -9,97 +9,127 @@
 	scope="application" />
 
 <script type="text/javascript">
-$(document).ready(
-        function() {  
-            $('button#send-status-update').click(function() {
-                var button = $(this);
-                button.addClass('loading-animation');
-                
-                var description = $('form#create-status-update textarea').val();
-                var moodRating = $('form#create-status-update input[type=radio]:checked').val();
-                
-                if(typeof moodRating == "undefined") 
-                	moodRating = '';
-                
-                $.post(baseUrl + '/statusupdate/createStatusUpdate.html', {description: description , moodRating: moodRating}, function(data) {
-                    /* if ($.trim(data) !== "") {
-                        $(data).hide().prependTo('#status-updates').slideDown(1000);                    	  
-                    } */
-                    
-                    location.reload();
-                    
-                    // Reset the form
-                    $('form#create-status-update')[0].reset();
-                    $('button#send-status-update').attr('disabled', 'disabled');
-                }).complete(function() {
-                    button.removeClass('loading-animation');
-                });
-            });
-            
-            // de-and activate send button by form content 
-            $('form#create-status-update input[type=radio], form#create-status-update textarea').bind('change keyup', function() {
-                var description = $('form#create-status-update textarea').val();
-                var moodRating = $('form#create-status-update input[type=radio]:checked').val();
-                
-                if(typeof moodRating == "undefined" && description == "") {
-                	 $('button#send-status-update').attr('disabled', 'disabled');
-                } else {
-                	$('button#send-status-update').removeAttr('disabled');
-                }
-            });
-            
-           $('#show-more-status-updates').click(function() {
-        	  var thisButton = $(this);
-        	  thisButton.addClass('loading-animation'); 
-        	   
-        	  var startDate = $('#status-updates').data('firststatusupdate');
-        	  var offset = $('#status-updates').data('offset');
-        	  var resultSize = $('#status-updates').data('resultsize');
-        	  
-        	  $.get(baseUrl + '/statusupdate/showStatusUpdatesList.html?startDate=' + startDate + '&offset=' + offset + '&resultSize=' + resultSize, function(data) {
-        		 if($.trim(data) !== "") {
-        			 $(data).appendTo('#status-updates');
-                     
-        			 $('#status-updates').data('offset', offset + resultSize);
-                     
-                     // If in the response are less status updates then it should be, there are probably no more status updates.
-                     if($(data).filter('.status-update').length < resultSize) {
-                    	 $('#no-more-status-updates').show();
-                         thisButton.remove();
-                     }
-        		 } else {
-                     $('#no-more-status-updates').show();
-                     thisButton.remove();
-        		 }
-        	  }).complete(function() {
-        		  thisButton.removeClass('loading-animation');
-        	  });
-           });
-           
-           $('.status-update .delete-status-update').on('click', (function() {
-        	   var button = $(this);
-               
-               var buttons = {};
-               buttons[messages['statusupdate.showMyStream.delete.confirmDialog.ok']] = function() {
-                   button.addClass('loading-animation');       
-                   $(this).dialog('close');
-                   
-                   var statusUpdateTimeStamp = button.data('statusupdatetimestamp');
-                   var parent = $(this).parents('.status-update');
-                   
-                   $.get(baseUrl + '/statusupdate/deleteStatusUpdate.html?when=' + statusUpdateTimeStamp, function(data) {
-                       if(data === "") {
-                           parent.slideUp("normal",function() {parent.remove();});
-                       }
-                   }).complete(function() {
-                       button.removeClass('loading-animation');
-                   });
-               };
-               buttons[messages['statusupdate.showMyStream.delete.confirmDialog.cancel']] = function() {$(this).dialog('close'); };
-               
-               $.confirm(messages['statusupdate.showMyStream.delete.confirmDialog.message'], messages['statusupdate.showMyStream.delete.confirmDialog.title'], buttons);
-           }));
-        });
+$(document).ready(function() {
+	$(':file').change(function(){
+	    var file = this.files[0];
+	    var name = file.name;
+	    var size = file.size;
+	    var type = file.type;
+	    $('#imageUploadButton').addClass('btn-success');
+	});
+	
+	$('button#send-status-update').click(function() {
+		var button = $(this);
+		button.addClass('loading-animation');
+		
+		var description = $('form#create-status-update textarea').val();
+		var moodRating = $('form#create-status-update input[type=radio]:checked').val();
+		
+		if(typeof moodRating == "undefined") 
+			moodRating = '';
+		
+		// The Image form
+		var formData = new FormData($('form')[2]);
+		
+		$.ajax({
+		    url: baseUrl + '/statusupdate/upload.html',
+		    type: 'POST',
+		    xhr: function() {
+		        var myXhr = $.ajaxSettings.xhr();
+		        return myXhr;
+		    },
+		    success: completeHandler,
+		    error: errorHandler,
+		    data: formData,
+		    cache: false,
+		    contentType: false,
+		    processData: false
+		});
+		
+		function completeHandler(data) {
+			console.log("image uploaded");
+			$.post(baseUrl + '/statusupdate/createStatusUpdate.html', {description: description , moodRating: moodRating}, function(data) {
+		         if ($.trim(data) !== "") {
+		             $(data).hide().prependTo('#status-updates').slideDown(1000);                    	  
+		         }
+		         
+		         //location.reload();
+
+		         $('form#create-status-update')[0].reset();
+		         $('button#send-status-update').attr('disabled', 'disabled');
+		     }).complete(function() {
+		         button.removeClass('loading-animation');
+		     });
+		}
+		
+		function errorHandler() {
+			console.log("Error uploading image.");
+		}
+	 });
+	 
+	 // de-and activate send button by form content 
+	 $('form#create-status-update input[type=radio], form#create-status-update textarea').bind('change keyup', function() {
+	     var description = $('form#create-status-update textarea').val();
+	     var moodRating = $('form#create-status-update input[type=radio]:checked').val();
+	     
+	     if(typeof moodRating == "undefined" && description == "") {
+	     	 $('button#send-status-update').attr('disabled', 'disabled');
+	     } else {
+	     	$('button#send-status-update').removeAttr('disabled');
+	     }
+	 });
+	 
+	$('#show-more-status-updates').click(function() {
+	var thisButton = $(this);
+	thisButton.addClass('loading-animation'); 
+	 
+	var startDate = $('#status-updates').data('firststatusupdate');
+	var offset = $('#status-updates').data('offset');
+	var resultSize = $('#status-updates').data('resultsize');
+	
+	$.get(baseUrl + '/statusupdate/showStatusUpdatesList.html?startDate=' + startDate + '&offset=' + offset + '&resultSize=' + resultSize, function(data) {
+	if($.trim(data) !== "") {
+	 $(data).appendTo('#status-updates');
+	          
+	 $('#status-updates').data('offset', offset + resultSize);
+	          
+	          // If in the response are less status updates then it should be, there are probably no more status updates.
+	          if($(data).filter('.status-update').length < resultSize) {
+	         	 $('#no-more-status-updates').show();
+	              thisButton.remove();
+	          }
+	} else {
+	          $('#no-more-status-updates').show();
+	          thisButton.remove();
+	}
+	}).complete(function() {
+	 thisButton.removeClass('loading-animation');
+	});
+	});
+	
+	$('.status-update .delete-status-update').on('click', (function() {
+	 var button = $(this);
+	    var buttons = {};
+	    buttons[messages['statusupdate.showMyStream.delete.confirmDialog.ok']] = function() {
+	        button.addClass('loading-animation');       
+	        $(this).dialog('close');
+	        
+	        var statusUpdateTimeStamp = button.data('statusupdatetimestamp');
+	        var parent = $(this).parents('.status-update');
+	        
+	        $.get(baseUrl + '/statusupdate/deleteStatusUpdate.html?when=' + statusUpdateTimeStamp, function(data) {
+	            if(data === "") {
+	                parent.slideUp("normal",function() {parent.remove();});
+	            }
+	        }).complete(function() {
+	            button.removeClass('loading-animation');
+	        });
+	    };
+	    buttons[messages['statusupdate.showMyStream.delete.confirmDialog.cancel']] = function() {$(this).dialog('close'); };
+	    
+	    $.confirm(messages['statusupdate.showMyStream.delete.confirmDialog.message'], messages['statusupdate.showMyStream.delete.confirmDialog.title'], buttons);
+	}));
+});
 </script>
 
 <!-- Main Content Central 940px + border-->
@@ -113,6 +143,13 @@ $(document).ready(
 		</div>
 		<br />
 	</div>
+	
+	<!--<form method="POST" action="<c:url value='/youapp/statusupdate/upload.html' />" enctype="multipart/form-data">
+
+	    Please select a file to upload : <input type="file" name="file" />
+	    <input type="submit" value="upload" />
+	
+	</form>-->
 
 	<div class="col-md-9">
 		<form id="create-status-update">
@@ -128,15 +165,31 @@ $(document).ready(
 					src="${pageContext.request.contextPath}/img/sad.gif"
 					style="padding-right: 15px;" class="emoticon"></label>
 			</div>
+			
 			<textarea
 				placeholder="${myProfile.firstName}<spring:message code="statusupdate.showMyStream.create.howAreYou"/>"
 				rows="2" class="form-control"></textarea>
 		</form>
 		<br />
-		<button disabled="disabled" id="send-status-update"
-			class="btn btn-success">
-			<spring:message code="statusupdate.showMyStream.create.button.send" />
-		</button>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<button disabled="disabled" id="send-status-update"
+					class="btn btn-success">
+					<spring:message code="statusupdate.showMyStream.create.button.send" />
+				</button>
+			</div>
+			<div class="col-md-4 text-right">
+				<span><spring:message code="statusupdate.showMyStream.image" /></span>
+			</div>
+			<div class="col-md-4 text-right">
+				<form enctype="multipart/form-data">
+					<span id="imageUploadButton" class="btn btn-primary btn-file">
+					    <spring:message code="statusupdate.showMyStream.browse" /> <input name="file" type="file" />
+					</span>
+				</form>
+			</div>
+		</div>
 	</div>
 </div>
 
